@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2019-12-16T10:41:05.574Z</updated>
+  <updated>2019-12-16T14:54:52.383Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>像您一样坚持</title>
+    <link href="https://yoursite.com/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/"/>
+    <id>https://yoursite.com/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/</id>
+    <published>2019-12-16T14:52:28.000Z</published>
+    <updated>2019-12-16T14:54:52.383Z</updated>
+    
+    <content type="html"><![CDATA[<p>$Clearlove$退役。</p><p>一个时代，过去了。</p><p>我也该像您一样，努力向前。</p><p>命运十字路口，谢谢您曾停留。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;$Clearlove$退役。&lt;/p&gt;
+&lt;p&gt;一个时代，过去了。&lt;/p&gt;
+&lt;p&gt;我也该像您一样，努力向前。&lt;/p&gt;
+&lt;p&gt;命运十字路口，谢谢您曾停留。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="感悟" scheme="https://yoursite.com/categories/%E6%84%9F%E6%82%9F/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Codeforces-1095E-Almost Regular Bracket Sequence</title>
