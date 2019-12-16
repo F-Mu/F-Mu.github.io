@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
 <meta property="og:description" content="题意： 有$n$个怪物，每个怪物有攻击力$a_{i}$点；有$m$个英雄，每个英雄有攻击力$p_{i}$点，耐力$s_{i}$点。 怪物需要被依次杀死(按输入顺序)。 每一天可以挑选一个英雄去杀怪物，他可以杀死的怪物攻击力小于等于他本身(即$a\leq p$)，每天最多可以杀死$s$个怪物。(每个英雄可以使用任意次) 问最少需要多少天可以杀死所有怪物(不能则输出$-1$)。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-29T09:40:00.945Z">
+<meta property="og:updated_time" content="2019-12-16T10:28:59.441Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -319,5 +319,20 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
