@@ -7,22 +7,22 @@
 
     
     <title>
-        CodeForces 1174D Ehab and the Expected XOR Problem |
+        CodeForces-1278B-A and B |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="题意给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）$1$、$1\leq a[i]&amp;lt;2^{n}$$2$、序列中没有子序列异或和为$0$或$x$$3$、$l$应最长">
-<meta name="keywords" content="二进制">
+    <meta name="description" content="题意 对于$t(1\leq t\leq 100)$个测试点，给两个数$a$和$b$，作如下操作： 第一次挑一个数使其加$1$，第二次挑一个数使其加$2$，以此类推，最后两个数相等，问最小操作数。">
+<meta name="keywords" content="思维">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForces 1174D Ehab and the Expected XOR Problem">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem&#x2F;index.html">
+<meta property="og:title" content="CodeForces-1278B-A and B">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;20&#x2F;CodeForces-1278B-A-and-B&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）$1$、$1\leq a[i]&amp;lt;2^{n}$$2$、序列中没有子序列异或和为$0$或$x$$3$、$l$应最长">
+<meta property="og:description" content="题意 对于$t(1\leq t\leq 100)$个测试点，给两个数$a$和$b$，作如下操作： 第一次挑一个数使其加$1$，第二次挑一个数使其加$2$，以此类推，最后两个数相等，问最小操作数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-16T10:28:34.640Z">
+<meta property="og:updated_time" content="2019-12-20T03:50:42.068Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,29 +60,29 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1278B-A-and-B" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      CodeForces 1174D Ehab and the Expected XOR Problem
+      CodeForces-1278B-A and B
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/11/23/CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem/" class="article-date">
-  <time datetime="2019-11-23T09:26:18.000Z" itemprop="datePublished">2019-11-23</time>
+    <a href="/2019/12/20/CodeForces-1278B-A-and-B/" class="article-date">
+  <time datetime="2019-12-20T03:13:37.000Z" itemprop="datePublished">2019-12-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a>
+    <a class="article-category-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a>
   </div>
 
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
 
   </div>
   
@@ -95,10 +95,24 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p><strong>题意</strong><br>给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）<br>$1$、$1\leq a[i]&lt;2^{n}$<br>$2$、序列中没有子序列异或和为$0$或$x$<br>$3$、$l$应最长</p>
+        <p><strong>题意</strong></p>
+<p>对于$t(1\leq t\leq 100)$个测试点，给两个数$a$和$b$，作如下操作：</p>
+<p>第一次挑一个数使其加$1$，第二次挑一个数使其加$2$，以此类推，最后两个数相等，问最小操作数。</p>
 <a id="more"></a>
-<p><strong>分析</strong><br>$1$、设前$i$个数字异或和为$sum_{i}$，则对于$[i,j]$的异或和为$sum_{i}⨁sum_{j-1}$，所以我们可以找出$sum$数组，满足</p>
-<script type="math/tex; mode=display">\forall i,j,sum_{i}\oplus sum_{j}\neq 0\&\&sum_{i}\oplus sum_{j}\neq x</script><p>$2$、异或性质有$y⨁z=x$，则有$y⨁x=z$，且对于任意一个数$y$，$z$是惟一的。且由于$y$和$z$在二进制下是不可能超过$2^{n}$的，因此，相对立的$y$和$z$在$2^{n}$内成对存在，设$i$从$1$开始遍历到$2^{n}$，我们与将$i$对立的数标记即可，我们可以得到$sum$数组<br>$3$、$a[i]=sum[i]⨁sum[i-1]$，输出数组即可<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">5e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod2 = <span class="number">1000000006</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = (ll) <span class="number">1e9</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    vis[x] = vis[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    ans.push_back(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>; i &gt; <span class="number">0</span>; --i)</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            ans.push_back(i);</span><br><span class="line">            vis[i ^ x] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans.size() - <span class="number">1</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; ans.size(); ++i)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (ans[i - <span class="number">1</span>] ^ ans[i]) &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p><strong>分析</strong></p>
+<p>题目所述意思即为挑选最小的$n$，满足以下等式$(\pm$表示可取正号可取负号$)$</p>
+<script type="math/tex; mode=display">
+\pm1\pm2\pm3\pm\cdots\pm n= \left|a-b\right|\tag{1}</script><p>我们令$\left|a-b\right|$为$x$，我们先找到最小的$k$满足$\frac{k*(k+1)}{2}\geq x$，即$(1)$式中全为加号$($如果全为加号都不满足，其中一些变为减号肯定更不满足$)$。我们有一个以下式子</p>
+<script type="math/tex; mode=display">
+1+2+\cdots+k=x+y\tag{2}</script><p>其中$y$为超过的部分。</p>
+<p>$1.$如果$y$是偶数，我们已知$y&lt;k$，否则不满足上述$k$最小。那么我们将$\frac{y}{2}$的符号变为负号即可满足$(1)$式，那么答案就是$k$。</p>
+<p>$2.$如果$y$是奇数，那么该式子将一些正号变为负号也肯定不满足（改变后式子的值变化为偶数），我们往$(2)$式左右都加上$k+1$。</p>
+<ul>
+<li>如果$k+1$是偶数，那么$y+k+1$仍然为奇数，同上，仍不满足，我们需两边再加上$k+2$，$y+2<em>k+1$为偶数，我们将$\frac{y+1}{2}$和$k$的符号变为负号即可满足$(1)$式，$(y+1=2</em>k$显然不满足条件$)$，那么答案就是$k+2$。</li>
+<li>如果$k+1$是奇数，那么$y+k+1$为偶数，我们将$\frac{y+k+1}{2}(\frac{y+k+1}{2}&lt;k+1)$的符号变为负号即可满足$(1)$式，那么答案就是$k+1$</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = (ll) <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> sum[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; maxn; ++i)</span><br><span class="line">        sum[i] = sum[i - <span class="number">1</span>] + i;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b)</span><br><span class="line">            swap(a, b);</span><br><span class="line">        <span class="keyword">int</span> x = b - a;</span><br><span class="line">        <span class="keyword">int</span> ans = lower_bound(sum, sum + maxn, x) - sum;</span><br><span class="line">        <span class="keyword">if</span> ((sum[ans] - x) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ans &amp; <span class="number">1</span>)</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; ans + <span class="number">2</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; ans + <span class="number">1</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>我现在连$Div2$的$B$都能卡一小时吗，我是真的菜</p>
 
       
     </div>
@@ -113,20 +127,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/11/25/CodeForces-1187E-Tree-Painting/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            CodeForces 1187E Tree Painting
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/11/23/Codeforces-1257E-The-Contest/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Codeforces 1257E - The Contest</div>
+      <a href="/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">像您一样坚持</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
