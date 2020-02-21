@@ -15,7 +15,7 @@
     
     
     <meta name="description" content="题意 给出$64$位二进制浮点数的表示方式，其中前$12$是指数，后$52$位是小数部分，整数部分默认为$1$，给出整数$n$，和按该表示方法给出的浮点数$a$的小数部分（后$52$位），输出$a$在该表示方法下连续加和$n$次（即$n+1$个$a$依次相加）的$64$位二进制浮点数的表示。">
-<meta name="keywords" content="模拟,二进制">
+<meta name="keywords" content="二进制,模拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ICPC Japan 2018] Floating-Point Numbers">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;27&#x2F;ICPC-Japan-2018-Floating-Point-Numbers&#x2F;index.html">
@@ -312,5 +312,20 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
