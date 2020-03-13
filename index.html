@@ -57,6 +57,59 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-CodeForces-1324E-Sleeping-Schedule" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/CodeForces-1324E-Sleeping-Schedule/">CodeForces 1324E Sleeping Schedule</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/03/13/CodeForces-1324E-Sleeping-Schedule/" class="article-date">
+  <time datetime="2020-03-13T02:30:19.000Z" itemprop="datePublished">2020-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DP/">DP</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>$Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉</p>
+<p><strong>分析</strong></p>
+<p>发现第$i$次睡眠的时间是由第$i-1$次睡眠时间决定的，一个显然的转移，因此这道题采用$DP$</p>
+<p>首先我们可以设第$0$次睡眠时，$Vova$是在第$0$时刻睡的</p>
+<p>假设$Vova$在第$i-1$次睡眠时在第$j$时刻，那么第$i$次$Vova$可以在第$(j+a_i)\%h$时刻或者在第$(j+a_i-1)\%h$时刻睡觉，我们可以记录一个$vis[i][j]$表示$Vova$在第$i$次睡眠时在第$j$时刻可以睡</p>
+<p>而如果$(j+a_i)\%h$在$[l,r]$区间内，则第$i$次睡眠在第$(j+a_i)\%h$时刻的答案数为第$i-1$次睡眠时$j$时刻的答案数加一，因为有多种方案使得$Vova$能在第$i-1$次睡眠时在第$j$时刻，因此取最大值，可以记录$dp[i][j]$表示在第$i$次睡眠时在第$j$时刻的答案，$dp[i][(j+a_i)\%h]=max(dp[i-1][j]+1,dp[i][(j+a_i)\%h])$</p>
+<p>如果$(j+a_i)\%h$不在$[l,r]$区间内，则$dp[i][(j+a_i)\%h]=max(dp[i-1][j],dp[i][(j+a_i)\%h])$</p>
+<p>答案可以在每次更新$dp[i][j]$时更新</p>
+<p>$(j+a_i-1)\%h$同理</p>
+<p>这题不卡空间，可以不使用滚动数组</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2005</span>][<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">2005</span>][<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n, h, l, r;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; h &gt;&gt; l &gt;&gt; r;</span><br><span class="line">    vis[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2000</span>; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i - <span class="number">1</span>][j]) &#123;</span><br><span class="line">                <span class="keyword">int</span> t = (j + x) % h;</span><br><span class="line">                vis[i][t] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (t &gt;= l &amp;&amp; t &lt;= r)</span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j] + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                ans = max(ans, dp[i][t]);</span><br><span class="line">                t = (j + x - <span class="number">1</span>) % h;</span><br><span class="line">                vis[i][t] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (t &gt;= l &amp;&amp; t &lt;= r)</span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j] + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                ans = max(ans, dp[i][t]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-CodeForces-1324D-Pair-of-Topics" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -474,56 +527,6 @@
 </article>
 
   
-    <article id="post-Codeforces-1257D-Yet-Another-Monster-Killing-Problem" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/Codeforces-1257D-Yet-Another-Monster-Killing-Problem/">Codeforces 1257D - Yet Another Monster Killing Problem</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/11/23/Codeforces-1257D-Yet-Another-Monster-Killing-Problem/" class="article-date">
-  <time datetime="2019-11-22T16:56:37.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%BC%80/" rel="tag">后缀</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong>：</p>
-<p>有$n$个怪物，每个怪物有攻击力$a_{i}$点；有$m$个英雄，每个英雄有攻击力$p_{i}$点，耐力$s_{i}$点。</p>
-<p>怪物需要被依次杀死(按输入顺序)。</p>
-<p>每一天可以挑选一个英雄去杀怪物，他可以杀死的怪物攻击力小于等于他本身(即$a\leq p$)，每天最多可以杀死$s$个怪物。(每个英雄可以使用任意次)</p>
-<p>问最少需要多少天可以杀死所有怪物(不能则输出$-1$)。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/23/Codeforces-1257D-Yet-Another-Monster-Killing-Problem/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -575,7 +578,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DP/" style="font-size: 15px;">DP</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 15px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 15px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 15px;">后缀</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 20px;">模拟</a>
+      <a href="/tags/DP/" style="font-size: 16.67px;">DP</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 13.33px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 13.33px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 13.33px;">后缀</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 13.33px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 20px;">模拟</a>
     </div>
   </div>
 
@@ -596,6 +599,10 @@
       <ul>
         
           <li>
+            <a href="/2020/03/13/CodeForces-1324E-Sleeping-Schedule/">CodeForces 1324E Sleeping Schedule</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/13/CodeForces-1324D-Pair-of-Topics/">CodeForces 1324D Pair of Topics</a>
           </li>
         
@@ -609,10 +616,6 @@
         
           <li>
             <a href="/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/">像您一样坚持</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/16/Codeforces-1095E-Almost-Regular-Bracket-Sequence/">Codeforces-1095E-Almost Regular Bracket Sequence</a>
           </li>
         
       </ul>
@@ -686,5 +689,20 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

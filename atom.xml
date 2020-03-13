@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-03-13T02:28:50.625Z</updated>
+  <updated>2020-03-13T02:58:50.155Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeForces 1324E Sleeping Schedule</title>
+    <link href="https://yoursite.com/2020/03/13/CodeForces-1324E-Sleeping-Schedule/"/>
+    <id>https://yoursite.com/2020/03/13/CodeForces-1324E-Sleeping-Schedule/</id>
+    <published>2020-03-13T02:30:19.000Z</published>
+    <updated>2020-03-13T02:58:50.155Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题意</strong></p><p>$Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉</p><p><strong>分析</strong></p><p>发现第$i$次睡眠的时间是由第$i-1$次睡眠时间决定的，一个显然的转移，因此这道题采用$DP$</p><p>首先我们可以设第$0$次睡眠时，$Vova$是在第$0$时刻睡的</p><p>假设$Vova$在第$i-1$次睡眠时在第$j$时刻，那么第$i$次$Vova$可以在第$(j+a_i)\%h$时刻或者在第$(j+a_i-1)\%h$时刻睡觉，我们可以记录一个$vis[i][j]$表示$Vova$在第$i$次睡眠时在第$j$时刻可以睡</p><p>而如果$(j+a_i)\%h$在$[l,r]$区间内，则第$i$次睡眠在第$(j+a_i)\%h$时刻的答案数为第$i-1$次睡眠时$j$时刻的答案数加一，因为有多种方案使得$Vova$能在第$i-1$次睡眠时在第$j$时刻，因此取最大值，可以记录$dp[i][j]$表示在第$i$次睡眠时在第$j$时刻的答案，$dp[i][(j+a_i)\%h]=max(dp[i-1][j]+1,dp[i][(j+a_i)\%h])$</p><p>如果$(j+a_i)\%h$不在$[l,r]$区间内，则$dp[i][(j+a_i)\%h]=max(dp[i-1][j],dp[i][(j+a_i)\%h])$</p><p>答案可以在每次更新$dp[i][j]$时更新</p><p>$(j+a_i-1)\%h$同理</p><p>这题不卡空间，可以不使用滚动数组</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2005</span>][<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">2005</span>][<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n, h, l, r;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; h &gt;&gt; l &gt;&gt; r;</span><br><span class="line">    vis[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2000</span>; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i - <span class="number">1</span>][j]) &#123;</span><br><span class="line">                <span class="keyword">int</span> t = (j + x) % h;</span><br><span class="line">                vis[i][t] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (t &gt;= l &amp;&amp; t &lt;= r)</span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j] + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                ans = max(ans, dp[i][t]);</span><br><span class="line">                t = (j + x - <span class="number">1</span>) % h;</span><br><span class="line">                vis[i][t] = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (t &gt;= l &amp;&amp; t &lt;= r)</span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j] + <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    dp[i][t] = max(dp[i][t], dp[i - <span class="number">1</span>][j]);</span><br><span class="line">                ans = max(ans, dp[i][t]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚
+      
+    
+    </summary>
+    
+    
+      <category term="DP" scheme="https://yoursite.com/categories/DP/"/>
+    
+    
+      <category term="DP" scheme="https://yoursite.com/tags/DP/"/>
+    
+  </entry>
   
   <entry>
     <title>CodeForces 1324D Pair of Topics</title>
@@ -267,9 +294,9 @@
     
       <category term="模拟" scheme="https://yoursite.com/tags/%E6%A8%A1%E6%8B%9F/"/>
     
-      <category term="后缀" scheme="https://yoursite.com/tags/%E5%90%8E%E7%BC%80/"/>
-    
       <category term="排序" scheme="https://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="后缀" scheme="https://yoursite.com/tags/%E5%90%8E%E7%BC%80/"/>
     
   </entry>
   
