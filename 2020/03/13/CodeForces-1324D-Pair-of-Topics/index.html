@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(ib_i+b_j$">
+    <meta name="description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(i&amp;lt;j)$，满足$a_i+a_j&amp;gt;b_i+b_j$">
 <meta name="keywords" content="二分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1324D Pair of Topics">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;13&#x2F;CodeForces-1324D-Pair-of-Topics&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(ib_i+b_j$">
+<meta property="og:description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(i&amp;lt;j)$，满足$a_i+a_j&amp;gt;b_i+b_j$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T02:28:50.625Z">
+<meta property="og:updated_time" content="2020-03-13T03:18:38.963Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -96,7 +96,7 @@
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
         <p><strong>题意</strong></p>
-<p>对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(i<j)$，满足$a_i+a_j>b_i+b_j$</p>
+<p>对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(i&lt;j)$，满足$a_i+a_j&gt;b_i+b_j$</p>
 <a id="more"></a>
 <p><strong>分析</strong></p>
 <p>首先发现如果$i$和$j$互换不影响不等式，因此对于$i&lt;j$这个条件，仅仅是满足二元组$(i,j)$和$(j,i)$只算一次</p>
