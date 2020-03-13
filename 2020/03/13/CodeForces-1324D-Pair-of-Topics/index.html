@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j$$(ib_i+b_j$">
+    <meta name="description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(ib_i+b_j$">
 <meta name="keywords" content="二分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1324D Pair of Topics">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;13&#x2F;CodeForces-1324D-Pair-of-Topics&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j$$(ib_i+b_j$">
+<meta property="og:description" content="题意 对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(ib_i+b_j$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T02:17:21.507Z">
+<meta property="og:updated_time" content="2020-03-13T02:28:50.625Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -96,7 +96,7 @@
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
         <p><strong>题意</strong></p>
-<p>对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j$$(i<j)$，满足$a_i+a_j>b_i+b_j$</p>
+<p>对于两个长度为$n$的数组$a[]$和$b[]$，找到有多少对$i$和$j(i<j)$，满足$a_i+a_j>b_i+b_j$</p>
 <a id="more"></a>
 <p><strong>分析</strong></p>
 <p>首先发现如果$i$和$j$互换不影响不等式，因此对于$i&lt;j$这个条件，仅仅是满足二元组$(i,j)$和$(j,i)$只算一次</p>
@@ -116,7 +116,7 @@ a_j-b_j>b_i-a_i</script><p>对于第$i$项来说，我们要找到所有的$j$�
 <p>每次循环若$now&gt;i\&amp;\&amp;c[now - 1] &gt; -c[i]$，则$now-1$也满足不等式，将$now$减一</p>
 <ul>
 <li>$now&gt;i$，同方法一，$ans+=n-now+1$</li>
-<li>$now=i$，即$[i+1,n]$都满足条件，又由于$j$是递减的，所以对于后面的$i$，$[i+1,n]$也满足条件，采取数列求和直接统计答案即可</li>
+<li>$now=i$，即$[i+1,n]$都满足条件，又由于$j$是递减的，所以对于后面的$i$，$now&lt;i$，所以$[i+1,n]$也满足条件，采取数列求和直接统计答案即可</li>
 </ul>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">&#125; a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].a;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i].b, c[i] = a[i].a - a[i].b;</span><br><span class="line">    sort(c + <span class="number">1</span>, c + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> now = n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">while</span> (now &gt; i &amp;&amp; c[now - <span class="number">1</span>] &gt; -c[i])</span><br><span class="line">            --now;</span><br><span class="line">        <span class="keyword">if</span> (now == i) &#123;</span><br><span class="line">            ans += (n - i + <span class="number">1</span>) * (n - i) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ans += n - now + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -320,20 +320,5 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
