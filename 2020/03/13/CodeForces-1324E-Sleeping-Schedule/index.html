@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 $Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉 分析 发现第$i$次睡眠的时间是由第$i-1$次睡眠时间决定的，一个显然的转移，因">
+    <meta name="description" content="题意 $Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉">
 <meta name="keywords" content="DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1324E Sleeping Schedule">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;13&#x2F;CodeForces-1324E-Sleeping-Schedule&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 $Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉 分析 发现第$i$次睡眠的时间是由第$i-1$次睡眠时间决定的，一个显然的转移，因">
+<meta property="og:description" content="题意 $Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T02:58:50.155Z">
+<meta property="og:updated_time" content="2020-03-13T03:01:51.614Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -97,6 +97,7 @@
       
         <p><strong>题意</strong></p>
 <p>$Vova$有一个睡眠时间表，一天有$h$小时，$Vova$会睡$n$次觉，一次睡一天，在第$i-1$次睡醒后，$Vova$在$a_i$或$a_i-1$个小时候可以再次入睡，一开始时间为第$0$时（可以视作$Vova$刚醒），$Vova$在$[l,r]$区间时睡觉会睡得舒服，问$Vova$最多可以睡几次舒服觉</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <p>发现第$i$次睡眠的时间是由第$i-1$次睡眠时间决定的，一个显然的转移，因此这道题采用$DP$</p>
 <p>首先我们可以设第$0$次睡眠时，$Vova$是在第$0$时刻睡的</p>
