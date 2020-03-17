@@ -22,10 +22,10 @@
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
 <meta property="og:description" content="交并比（ $IoU$ ）函数做的是计算两个边界框交集和并集之比。两个边界框的并集是这个区域，就是属于包含两个边界框区域（绿色阴影表示区域），而交集就是这个比较小的区域（橙色阴影表示区域），那么交并比就是交集的大小，这个橙色阴影面积，然后除以绿色阴影的并集面积。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;交并比示意图.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;17&#x2F;%E4%BA%A4%E5%B9%B6%E6%AF%94&#x2F;交并比示意图.jpg">
 <meta property="og:updated_time" content="2020-03-17T06:48:12.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;yoursite.com&#x2F;.com&#x2F;&#x2F;交并比示意图.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;17&#x2F;%E4%BA%A4%E5%B9%B6%E6%AF%94&#x2F;交并比示意图.jpg">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
     
@@ -99,7 +99,7 @@
       
         <p>交并比（ $IoU$ ）函数做的是计算两个边界框交集和并集之比。两个边界框的并集是这个区域，就是属于包含两个边界框区域（绿色阴影表示区域），而交集就是这个比较小的区域（橙色阴影表示区域），那么交并比就是交集的大小，这个橙色阴影面积，然后除以绿色阴影的并集面积。</p>
 <a id="more"></a>
-<p><img src="/.com//交并比示意图.jpg" alt></p>
+<p><img src="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/交并比示意图.jpg" alt></p>
 <p>一般约定，在计算机检测任务中，如果$IoU≥0.5$，就说检测正确，如果预测器和实际边界框完美重叠， $IoU$ 就是 $1$，因为交集就等于并集。但一般来说只要$IoU≥0.5$，那么结果是可以接受的，看起来还可以。一般约定，$IoU≥0.5$是阈值，用来判断预测的边界框是否正确。一般是这么约定，但如果你希望更严格一点，你可以将 $IoU$ 定得更高，比如说大于 $0.6$ 或者更大的数字，但 $IoU$ 越高，边界框越精确。</p>
 
       
@@ -302,20 +302,5 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
