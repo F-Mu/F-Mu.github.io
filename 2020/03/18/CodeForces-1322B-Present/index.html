@@ -7,22 +7,22 @@
 
     
     <title>
-        字符编码 |
+        CodeForces 1322B Present |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="$ASCII$编码采用$1 Byte$，最多$256$个字符 扩展编码（加字节）">
-<meta name="keywords" content="Java">
+    <meta name="description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和 分析 考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献） 对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中">
+<meta name="keywords" content="二进制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符编码">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;15&#x2F;%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81&#x2F;index.html">
+<meta property="og:title" content="CodeForces 1322B Present">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;CodeForces-1322B-Present&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="$ASCII$编码采用$1 Byte$，最多$256$个字符 扩展编码（加字节）">
+<meta property="og:description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和 分析 考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献） 对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-15T05:33:07.465Z">
+<meta property="og:updated_time" content="2020-03-18T10:36:08.129Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,29 +60,29 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-字符编码" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1322B-Present" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      字符编码
+      CodeForces 1322B Present
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="article-date">
-  <time datetime="2020-03-15T05:03:55.000Z" itemprop="datePublished">2020-03-15</time>
+    <a href="/2020/03/18/CodeForces-1322B-Present/" class="article-date">
+  <time datetime="2020-03-18T10:15:14.000Z" itemprop="datePublished">2020-03-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a>
   </div>
 
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li></ul>
 
   </div>
   
@@ -95,41 +95,14 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>$ASCII$编码采用$1 Byte$，最多$256$个字符</p>
-<p>扩展编码（加字节）</p>
-<a id="more"></a>
-<ul>
-<li>$ISO8859(1-15)$：西欧语言</li>
-<li>$GB2132,GBK,GB18030$：$ASCII+$中文$(GB18030&gt;GBK&gt;GB2312)$</li>
-<li>$Big5$：$ASCII+$繁体中文</li>
-<li>$Shift\_JIS$：$ASCII+$日文</li>
-<li>$Unicode$（字符集）<ul>
-<li>目标<ul>
-<li>不断扩充，存储全世界所有的字符</li>
-</ul>
-</li>
-<li>编码方案<ul>
-<li>$UTF-8$，兼容$ASCII$，变长（$1-4$个字节存储字符），经济，方便传输</li>
-<li>$UTF-16$，变长($2-4$个字节)来存储所有字符</li>
-<li>$UTF-32$，用$4$个字节存储所有字符</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>$ANSI$编码</p>
-<ul>
-<li>$Windows$上非$Unicode$的默认编码</li>
-<li>在简体中文$Windows$操作系统中，$ANSI$编码代表$GBK$编码</li>
-<li>在繁体中文$Windows$操作系统中，$ANSI$编码代表$Big5$编码</li>
-<li>$ANSI$编码文件不能兼容使用</li>
-</ul>
-<p>$Java$的字符编码</p>
-<ul>
-<li>源文件编码：采用$UTF-8$编码</li>
-<li>程序内部采用$UTF-16$编码</li>
-<li>和外界（文本文件）的输入输出尽量采用$UTF-8$编码</li>
-</ul>
+        <p><strong>题意</strong></p>
+<p>求对所有的二元组$(i,j)(i&lt;j)$，$a_i+a_j$的异或和</p>
+<p><strong>分析</strong></p>
+<p>考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献）</p>
+<p>对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中</p>
+<p>如果产生的贡献为奇数，则答案中该位为$1$，否则为$0$</p>
+<p>统计第$k$位时，则可以取模，排序，双指针（二分），分别统计两个区间内的数，合并</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">4e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn], n, ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n, l = <span class="number">1</span>, r = <span class="number">1</span>; i &gt;= <span class="number">1</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= n &amp;&amp; b[i] + b[l] &lt; L)</span><br><span class="line">            ++l;</span><br><span class="line">        <span class="keyword">while</span> (r &lt;= n &amp;&amp; b[i] + b[r] &lt;= R)</span><br><span class="line">            ++r;</span><br><span class="line">        sum += r - l - (l &lt;= i &amp;&amp; i &lt; r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (sum &gt;&gt; <span class="number">1</span>) &amp; <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    re(i, <span class="number">1</span>, n)b[i] = a[i] &amp; ((<span class="number">1</span> &lt;&lt; (k + <span class="number">1</span>)) - <span class="number">1</span>);</span><br><span class="line">    sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> cal(<span class="number">1</span> &lt;&lt; k, (<span class="number">1</span> &lt;&lt; (k + <span class="number">1</span>)) - <span class="number">1</span>) ^ cal(<span class="number">3</span> &lt;&lt; k, (<span class="number">1</span> &lt;&lt; (k + <span class="number">2</span>)) - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    re(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    re(i, <span class="number">0</span>, <span class="number">25</span>)ans |= solve(i) &lt;&lt; i;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -144,20 +117,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            交并比
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/03/13/CodeForces-1324F-Maximum-White-Subtree/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">CodeForces 1324F Maximum White Subtree</div>
+      <a href="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">交并比</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
