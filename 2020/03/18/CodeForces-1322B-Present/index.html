@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和 分析 考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献） 对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中">
+    <meta name="description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和">
 <meta name="keywords" content="二进制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1322B Present">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;18&#x2F;CodeForces-1322B-Present&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和 分析 考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献） 对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中">
+<meta property="og:description" content="题意 求对所有的二元组$(i,j)(i&amp;lt;j)$，$a_i+a_j$的异或和">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T10:36:08.129Z">
+<meta property="og:updated_time" content="2020-03-18T10:41:52.506Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -97,6 +97,7 @@
       
         <p><strong>题意</strong></p>
 <p>求对所有的二元组$(i,j)(i&lt;j)$，$a_i+a_j$的异或和</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <p>考虑对于第$k$位的贡献，将所有数对$2^{k+1}$取模（因为大于等于$2^{k+1}$的部分对第$k$位不产生贡献）</p>
 <p>对于任意$a_i$和$a_j$来说，和要在第$k$位为$1$（为$0$不产生贡献），即和的范围必须在$[2^k,2^{k+1}-1]$或$[2^k+2^{k+1},2^{k+2}-2]$中</p>
