@@ -1,0 +1,90 @@
+# Header
+menu:
+  首页: /
+  归档: /archives
+
+rss: /atom.xml
+nav: right
+mobile_nav: right
+
+
+
+# Content
+excerpt_link: 阅读全文
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- userinfo
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+- blogroll
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'monthly'
+show_count: false
+
+# Background
+# background_image: /images/bg.jpeg
+background_title: 活着
+
+# favicon
+favicon: /images/default-avatar.jpg
+
+#Userinfo
+author: 幕
+slogan: 
+# avatar: /images/code-title.png
+avatar_title: 
+
+# Article code panel: cloud doorframe mac
+highlightPanel: cloud
+
+#Gitment
+gitment:
+  owner: F-Mu
+  repo: git@github.com:F-Mu/F-Mu.github.io.git
+  client_id: 87887df73b13db5740a8
+  client_secret: d4bf03598ce3c3d6cbfca8e07e7b707914b79d39
+
+# Miscellaneous
+google_analytics:
+gauges_analytics:
+google_site_verification: 
+baidu_site_verification: 
+
+# 友情链接
+blogroll:
+  努力学长: https://yuanquanquan.top/
+
+# Automatically Excerpt. Not recommend.
+# Please use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: false
+  length: 150
+
+# live2d
+live2d:
+  enable: true
+  scriptFrom: local
+  model:
+    use: live2d-widget-model-z16
+  display:
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: true
+
+mathjax:
+  enable: true
