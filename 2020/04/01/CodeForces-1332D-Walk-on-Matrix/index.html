@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
 <meta property="og:description" content="题意 $Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和 他的算法如下($C++$) 12345678memset(dp, 0, sizeof(dp));dp[0][1] = a[1][1];for (int i = 1; i &amp;lt;= n; ++i) &amp;#123;    for (int j = 1; j &amp;lt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-01T03:09:08.447Z">
+<meta property="og:updated_time" content="2020-04-01T06:48:11.944Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -112,7 +112,7 @@
 <p>且可以模仿样例在答案路径中放入一个另一个更大的异或值</p>
 <p>我们考虑能否直接构造矩阵使得答案是$k$，使得$Bob$的代码得到$0$</p>
 <p>首先考虑二维矩阵，发现$(2,2)$是的确是挑最大的异或和，无法构造</p>
-<p>我们看到第二个样例是$3<em>4$的矩阵，我们考虑能否构造出一个$2</em>3$的矩阵</p>
+<p>我们看到第二个样例是$3*4$的矩阵，我们考虑能否构造出一个$2*3$的矩阵</p>
 <p>考虑设计两个路径</p>
 <ul>
 <li>$(1,1)-&gt;(1,2)-&gt;(2,2)-&gt;(2,3)$</li>
