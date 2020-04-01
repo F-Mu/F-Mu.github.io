@@ -7,22 +7,22 @@
 
     
     <title>
-        CodeForces 1174D Ehab and the Expected XOR Problem |
+        CodeForces 1332E Height All the Same |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="题意给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）$1$、$1\leq a[i]&amp;lt;2^{n}$$2$、序列中没有子序列异或和为$0$或$x$$3$、$l$应最长">
-<meta name="keywords" content="二进制">
+    <meta name="description" content="题意 对于一个$n*m$的矩阵，有两种操作  一个格子加二 一个格子和另一个相邻的格子同时加一  通过这两种操作最终使得所有矩阵元素相等 对于矩阵元素来说，有$L\leq a_{i,j}\leq R(1\leq i\leq n,1\leq j\leq m)$ 问有多少种方案数，答案$\mod 998244353$">
+<meta name="keywords" content="数论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForces 1174D Ehab and the Expected XOR Problem">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem&#x2F;index.html">
+<meta property="og:title" content="CodeForces 1332E Height All the Same">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;01&#x2F;CodeForces-1332E-Height-All-the-Same&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）$1$、$1\leq a[i]&amp;lt;2^{n}$$2$、序列中没有子序列异或和为$0$或$x$$3$、$l$应最长">
+<meta property="og:description" content="题意 对于一个$n*m$的矩阵，有两种操作  一个格子加二 一个格子和另一个相邻的格子同时加一  通过这两种操作最终使得所有矩阵元素相等 对于矩阵元素来说，有$L\leq a_{i,j}\leq R(1\leq i\leq n,1\leq j\leq m)$ 问有多少种方案数，答案$\mod 998244353$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-16T10:28:34.640Z">
+<meta property="og:updated_time" content="2020-04-01T05:39:07.010Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,21 +60,21 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1332E-Height-All-the-Same" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      CodeForces 1174D Ehab and the Expected XOR Problem
+      CodeForces 1332E Height All the Same
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/11/23/CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem/" class="article-date">
-  <time datetime="2019-11-23T09:26:18.000Z" itemprop="datePublished">2019-11-23</time>
+    <a href="/2020/04/01/CodeForces-1332E-Height-All-the-Same/" class="article-date">
+  <time datetime="2020-04-01T04:25:15.000Z" itemprop="datePublished">2020-04-01</time>
 </a>
     
   <div class="article-category">
@@ -82,7 +82,7 @@
   </div>
 
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
 
   </div>
   
@@ -95,10 +95,39 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p><strong>题意</strong><br>给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）<br>$1$、$1\leq a[i]&lt;2^{n}$<br>$2$、序列中没有子序列异或和为$0$或$x$<br>$3$、$l$应最长</p>
+        <p><strong>题意</strong></p>
+<p>对于一个$n*m$的矩阵，有两种操作</p>
+<ul>
+<li>一个格子加二</li>
+<li>一个格子和另一个相邻的格子同时加一</li>
+</ul>
+<p>通过这两种操作最终使得所有矩阵元素相等</p>
+<p>对于矩阵元素来说，有$L\leq a_{i,j}\leq R(1\leq i\leq n,1\leq j\leq m)$</p>
+<p>问有多少种方案数，答案$\mod 998244353$</p>
 <a id="more"></a>
-<p><strong>分析</strong><br>$1$、设前$i$个数字异或和为$sum_{i}$，则对于$[i,j]$的异或和为$sum_{i}⨁sum_{j-1}$，所以我们可以找出$sum$数组，满足</p>
-<script type="math/tex; mode=display">\forall i,j,sum_{i}\oplus sum_{j}\neq 0\&\&sum_{i}\oplus sum_{j}\neq x</script><p>$2$、异或性质有$y⨁z=x$，则有$y⨁x=z$，且对于任意一个数$y$，$z$是惟一的。且由于$y$和$z$在二进制下是不可能超过$2^{n}$的，因此，相对立的$y$和$z$在$2^{n}$内成对存在，设$i$从$1$开始遍历到$2^{n}$，我们与将$i$对立的数标记即可，我们可以得到$sum$数组<br>$3$、$a[i]=sum[i]⨁sum[i-1]$，输出数组即可<br><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">5e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod2 = <span class="number">1000000006</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = (ll) <span class="number">1e9</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    vis[x] = vis[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    ans.push_back(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>; i &gt; <span class="number">0</span>; --i)</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            ans.push_back(i);</span><br><span class="line">            vis[i ^ x] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans.size() - <span class="number">1</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; ans.size(); ++i)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (ans[i - <span class="number">1</span>] ^ ans[i]) &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p><strong>分析</strong></p>
+<p>由于最终相等的值与答案无关，所以我们不妨所有元素减去$L$，即所有元素的值在$[0,R-L]$区间内</p>
+<p>而所有元素通过操作可以相差最多为$1$（仅仅分奇偶）</p>
+<p>这种操作可以不断进行，所以我们只需看数字的奇偶性</p>
+<p>为描述，我们不妨将所有元素视为$0,1$</p>
+<p>对于$1$来说，其周围一定没有$1$，否则可以填上使两元素变为$0$，那么如果该$1$和旁边的$0$同时加$1$，我们可以发现$0$和$1$互换位置了</p>
+<p>这种操作的意义在于，对于任意的一个$1$，我们可以通过操作使其变到其他任意的位置</p>
+<p>那么如果矩阵中有奇数个$1$，我们可以将其变为$1$个$1$，而偶数个$1$，我们一定可以将两个$1$进行配对，从而消去</p>
+<p>我们思考$n*m$的奇偶性</p>
+<ul>
+<li>若$n<em>m$为奇数，若有偶数个$1$，则满足条件，若有奇数个$1$，我们将其变为$1$个$1$，并将其移动到边角上，通过蛇形配对，我们可以将除该元素的其他元素同时加上$1$，所有元素相等，因此所有取值皆满足答案就是$(R-L+1)^{n</em>m}$(每个数有$R-L+1$中取法)</li>
+<li>若$n<em>m$为偶数，若有偶数个$1$，则满足条件，若有奇数个$1$，我们可以发现元素和为奇数，而$n</em>m$为偶数，元素和无论怎么增加（每次加二），一定是奇数，无法整除$n*m$一定不满足，因此答案为偶数个$1$的取值方式</li>
+</ul>
+<p>接下来分析$n*m$为偶数时，有多少种偶数个$1$的取值方式：</p>
+<p>如果$R-L+1$为奇数，则可以取$\frac {R-L+2} {2}$种奇数，否则为$\frac {R-L+1} {2}$种奇数，设为$j$，设$R-L+1$为$t$</p>
+<p>答案为$C^0_{n<em>m}</em>j^0<em>(t-j)^{n</em>m}+C^2_{n<em>m}</em>j^2<em>(t-j)^{n</em>m-2}+\cdots+C^{n<em>m}_{n</em>m}<em>j^{n</em>m}<em>(t-j)^{0}$，意思为挑偶数（$2</em>k$）个奇数（$C^{2<em>k}_{n</em>m}$），每个奇数有$j$中取值，其余偶数有$t-j$种取值</p>
+<p>发现这个式子是二项展开式的偶数项，那么可以推导下（半小时无从下手，我对不起高中数学老师）</p>
+<script type="math/tex; mode=display">
+(j+(t-j))^{n*m}=C^{0}_{n*m}j^{0}(t-j)^{n*m}+C^{1}_{n*m}j^{1}(t-j)^{n*m-1}+\cdots+C^{n*m}_{n*m}j^{n*m}(t-j)^{0}</script><script type="math/tex; mode=display">
+(j-(t-j))^{n*m}=C^{0}_{n*m}j^{0}(t-j)^{n*m}-C^{1}_{n*m}j^{1}(t-j)^{n*m-1}+\cdots+C^{n*m}_{n*m}j^{n*m}(t-j)^{0}</script><p>第二个式子偶数项是加号，奇数项是减号（从$0$开始计数）</p>
+<p>两式相加除以二即为偶数项和，即</p>
+<script type="math/tex; mode=display">
+\frac{(j+(t-j))^{n*m}+(j-(t-j))^{n*m}}{2}</script><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>)</span><br><span class="line">            ans = ans * x % mod;</span><br><span class="line">        x = x * x % mod;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n, m, L, R;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; L &gt;&gt; R;</span><br><span class="line">    <span class="keyword">int</span> t = R - L + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> ((n * m) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; qp(t, n * m) % mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">if</span> (t &amp; <span class="number">1</span>)</span><br><span class="line">            j = (t + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j = t / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = ((qp(t, m * n) + qp((<span class="number">2</span> * j - t), m * n)) % mod + mod) % mod * qp(<span class="number">2</span>, mod - <span class="number">2</span>) % mod;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -113,20 +142,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/11/25/CodeForces-1187E-Tree-Painting/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            CodeForces 1187E Tree Painting
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/11/23/Codeforces-1257E-The-Contest/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Codeforces 1257E - The Contest</div>
+      <a href="/2020/04/01/CodeForces-1332D-Walk-on-Matrix/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">CodeForces 1332D Walk on Matrix</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
