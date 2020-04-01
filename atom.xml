@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-03-18T10:41:52.506Z</updated>
+  <updated>2020-04-01T03:09:08.447Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeForces 1332D Walk on Matrix</title>
+    <link href="https://yoursite.com/2020/04/01/CodeForces-1332D-Walk-on-Matrix/"/>
+    <id>https://yoursite.com/2020/04/01/CodeForces-1332D-Walk-on-Matrix/</id>
+    <published>2020-04-01T02:30:02.000Z</published>
+    <updated>2020-04-01T03:09:08.447Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题意</strong></p><p>$Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和</p><p>他的算法如下($C++$)</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">        dp[i][j] = max(dp[i - <span class="number">1</span>][j] &amp; a[i][j], dp[i][j - <span class="number">1</span>] &amp; a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; dp[n][m];</span><br></pre></td></tr></table></figure></div><p>已知他的算法并不能得到最大的异或和</p><p>给定一个$k$，请构造出一个$n*m$的矩阵，使得最大异或和比他的代码得出的答案大$k$</p><a id="more"></a><p>$1\leq n,m\leq 500$</p><p>$0\leq a_{i,j}\leq 3*10^5$</p><p>$0\leq k\leq 10^5$</p><p><strong>分析</strong></p><p>既然要针对$Bob$的算法进行构造，那么肯定要知道他的算法错在哪里（知己知彼，百战百胜）</p><p>我们将第二个样例的矩阵作为输入，得到$Bob$的答案 ，发现是$2$，在答案路径中，$(3,4)$前的节点是$(3,3)$</p><p>我们输出$dp[3][3]$发现是$4$，但是在答案路径中，走到$(3,3)$时是$3$，大概清楚了异或和并不能进行贪心</p><p>且可以模仿样例在答案路径中放入一个另一个更大的异或值</p><p>我们考虑能否直接构造矩阵使得答案是$k$，使得$Bob$的代码得到$0$</p><p>首先考虑二维矩阵，发现$(2,2)$是的确是挑最大的异或和，无法构造</p><p>我们看到第二个样例是$3<em>4$的矩阵，我们考虑能否构造出一个$2</em>3$的矩阵</p><p>考虑设计两个路径</p><ul><li>$(1,1)-&gt;(1,2)-&gt;(2,2)-&gt;(2,3)$</li><li>$(1,1)-&gt;(2,1)-&gt;(2,2)-&gt;(2,3)$</li></ul><p>通过样例得到灵感，第二条路径得到的$(2,2)$中的答案比第一条路径中大，但是不满足条件</p><p>那么思考如果异或要大，不妨在$k$的二进制前面加上一个$’1’$，如果第二条路径要大，可以在$k$取反后前面在加一个$’1’$</p><p>我们直接设计$a[2][3]=k$，我们看数据范围看到$a[i][j]$的最大值可以为$3*k$，考虑如下构造：</p><p>将$k$变为$2$进制，设字符串为$s$，将其各位取反得到字符串$s1$</p><p>构造$2*3$矩阵：</p><p>$(‘1’+s)$ $(s)$ $(0)$</p><p>$(‘1’+s1)$ $(‘1’+s)$ $(s)$</p><p>然后将其转换为十进制即可</p><p>路径一我们可以直接忽略$s$前面的$1$直接得到答案$k$</p><p>路径二我们发现走到$(2,2)$时，答案是$s$前面的$1$，那么这个和$(2,3)$的值异或一定是$0$</p><p>取反也可以用^，但写代码时没考虑那么多</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="number">2</span> &lt;&lt; <span class="string">' '</span> &lt;&lt; <span class="number">3</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">    <span class="keyword">int</span> maxx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">30</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &amp; (<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">            a[i] = <span class="number">1</span>, maxx = i;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; k + (<span class="number">1</span> &lt;&lt; (maxx + <span class="number">1</span>)) &lt;&lt; <span class="string">' '</span> &lt;&lt; k &lt;&lt; <span class="string">' '</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    <span class="keyword">int</span> ans = (<span class="number">1</span> &lt;&lt; (maxx + <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = maxx; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!a[i])</span><br><span class="line">            ans += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">' '</span> &lt;&lt; k + (<span class="number">1</span> &lt;&lt; (maxx + <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; k;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><p>废话好多，构造还是思路重要，所以大部分篇幅都用来讲思路</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和&lt;/p&gt;
+&lt;p&gt;他的算法如下($C++$)&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;memset&lt;/span&gt;(dp, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;sizeof&lt;/span&gt;(dp));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dp[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = a[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i &amp;lt;= n; ++i) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; j &amp;lt;= m; ++j) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        dp[i][j] = max(dp[i - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;][j] &amp;amp; a[i][j], dp[i][j - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] &amp;amp; a[i][j]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt; &amp;lt;&amp;lt; dp[n][m];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;已知他的算法并不能得到最大的异或和&lt;/p&gt;
+&lt;p&gt;给定一个$k$，请构造出一个$n*m$的矩阵，使得最大异或和比他的代码得出的答案大$k$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="构造" scheme="https://yoursite.com/categories/%E6%9E%84%E9%80%A0/"/>
+    
+    
+      <category term="构造" scheme="https://yoursite.com/tags/%E6%9E%84%E9%80%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>CodeForces 1322B Present</title>
@@ -305,9 +333,9 @@
       <category term="DP" scheme="https://yoursite.com/categories/DP/"/>
     
     
-      <category term="树" scheme="https://yoursite.com/tags/%E6%A0%91/"/>
-    
       <category term="DP" scheme="https://yoursite.com/tags/DP/"/>
+    
+      <category term="树" scheme="https://yoursite.com/tags/%E6%A0%91/"/>
     
   </entry>
   
@@ -386,9 +414,9 @@
     
       <category term="模拟" scheme="https://yoursite.com/tags/%E6%A8%A1%E6%8B%9F/"/>
     
-      <category term="排序" scheme="https://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
-    
       <category term="后缀" scheme="https://yoursite.com/tags/%E5%90%8E%E7%BC%80/"/>
+    
+      <category term="排序" scheme="https://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
