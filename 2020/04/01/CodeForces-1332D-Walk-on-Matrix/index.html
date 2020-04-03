@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 $Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和 他的算法如下($C++$) 12345678memset(dp, 0, sizeof(dp));dp[0][1] = a[1][1];for (int i = 1; i &amp;lt;= n; ++i) &amp;#123;    for (int j = 1; j &amp;lt;">
+    <meta name="description" content="题意 $Bob$想解决一个问题：一个$n\cdot m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和 他的算法如下($C++$) 12345678memset(dp, 0, sizeof(dp));dp[0][1] = a[1][1];for (int i = 1; i &amp;lt;= n; ++i) &amp;#123;    for (int j = 1; j">
 <meta name="keywords" content="构造">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1332D Walk on Matrix">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;01&#x2F;CodeForces-1332D-Walk-on-Matrix&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 $Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和 他的算法如下($C++$) 12345678memset(dp, 0, sizeof(dp));dp[0][1] = a[1][1];for (int i = 1; i &amp;lt;= n; ++i) &amp;#123;    for (int j = 1; j &amp;lt;">
+<meta property="og:description" content="题意 $Bob$想解决一个问题：一个$n\cdot m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和 他的算法如下($C++$) 12345678memset(dp, 0, sizeof(dp));dp[0][1] = a[1][1];for (int i = 1; i &amp;lt;= n; ++i) &amp;#123;    for (int j = 1; j">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-01T06:48:11.944Z">
+<meta property="og:updated_time" content="2020-04-03T05:17:59.122Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -96,14 +96,14 @@
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
         <p><strong>题意</strong></p>
-<p>$Bob$想解决一个问题：一个$n*m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和</p>
+<p>$Bob$想解决一个问题：一个$n\cdot m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大异或和</p>
 <p>他的算法如下($C++$)</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">        dp[i][j] = max(dp[i - <span class="number">1</span>][j] &amp; a[i][j], dp[i][j - <span class="number">1</span>] &amp; a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; dp[n][m];</span><br></pre></td></tr></table></figure></div>
 <p>已知他的算法并不能得到最大的异或和</p>
-<p>给定一个$k$，请构造出一个$n*m$的矩阵，使得最大异或和比他的代码得出的答案大$k$</p>
+<p>给定一个$k$，请构造出一个$n\cdot m$的矩阵，使得最大异或和比他的代码得出的答案大$k$</p>
 <a id="more"></a>
 <p>$1\leq n,m\leq 500$</p>
-<p>$0\leq a_{i,j}\leq 3*10^5$</p>
+<p>$0\leq a_{i,j}\leq 3\cdot 10^5$</p>
 <p>$0\leq k\leq 10^5$</p>
 <p><strong>分析</strong></p>
 <p>既然要针对$Bob$的算法进行构造，那么肯定要知道他的算法错在哪里（知己知彼，百战百胜）</p>
@@ -112,7 +112,7 @@
 <p>且可以模仿样例在答案路径中放入一个另一个更大的异或值</p>
 <p>我们考虑能否直接构造矩阵使得答案是$k$，使得$Bob$的代码得到$0$</p>
 <p>首先考虑二维矩阵，发现$(2,2)$是的确是挑最大的异或和，无法构造</p>
-<p>我们看到第二个样例是$3*4$的矩阵，我们考虑能否构造出一个$2*3$的矩阵</p>
+<p>我们看到第二个样例是$3\cdot 4$的矩阵，我们考虑能否构造出一个$2*3$的矩阵</p>
 <p>考虑设计两个路径</p>
 <ul>
 <li>$(1,1)-&gt;(1,2)-&gt;(2,2)-&gt;(2,3)$</li>
@@ -120,9 +120,9 @@
 </ul>
 <p>通过样例得到灵感，第二条路径得到的$(2,2)$中的答案比第一条路径中大，但是不满足条件</p>
 <p>那么思考如果异或要大，不妨在$k$的二进制前面加上一个$’1’$，如果第二条路径要大，可以在$k$取反后前面在加一个$’1’$</p>
-<p>我们直接设计$a[2][3]=k$，我们看数据范围看到$a[i][j]$的最大值可以为$3*k$，考虑如下构造：</p>
+<p>我们直接设计$a[2][3]=k$，我们看数据范围看到$a[i][j]$的最大值可以为$3\cdot k$，考虑如下构造：</p>
 <p>将$k$变为$2$进制，设字符串为$s$，将其各位取反得到字符串$s1$</p>
-<p>构造$2*3$矩阵：</p>
+<p>构造$2\cdot 3$矩阵：</p>
 <p>$(‘1’+s)$ $(s)$ $(0)$</p>
 <p>$(‘1’+s1)$ $(‘1’+s)$ $(s)$</p>
 <p>然后将其转换为十进制即可</p>
@@ -341,20 +341,5 @@ document.body.write(script);
   <div class="mobile-nav-img  mobile-nav-bottom"></div>
 </nav>    
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
