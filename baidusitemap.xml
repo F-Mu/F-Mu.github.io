@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yoursite.com/2020/03/13/CodeForces-1324F-Maximum-White-Subtree/</loc>
+    <lastmod>2020-04-23</lastmod>
+  </url>  <url>
     <loc>https://yoursite.com/2020/04/23/CodeForces-1343E-Weights-Distributing/</loc>
     <lastmod>2020-04-23</lastmod>
   </url>  <url>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>https://yoursite.com/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2020-03-15</lastmod>
-  </url>  <url>
-    <loc>https://yoursite.com/2020/03/13/CodeForces-1324F-Maximum-White-Subtree/</loc>
-    <lastmod>2020-03-13</lastmod>
   </url>  <url>
     <loc>https://yoursite.com/2020/03/13/CodeForces-1324D-Pair-of-Topics/</loc>
     <lastmod>2020-03-13</lastmod>
