@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-06-17T07:41:22.180Z</updated>
+  <updated>2020-06-17T09:39:28.094Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeForces 1244G Running in Pairs</title>
+    <link href="https://yoursite.com/2020/06/17/CodeForces-1244G-Running-in-Pairs/"/>
+    <id>https://yoursite.com/2020/06/17/CodeForces-1244G-Running-in-Pairs/</id>
+    <published>2020-06-17T09:30:35.000Z</published>
+    <updated>2020-06-17T09:39:28.094Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题意</strong></p><p>找到长度为$n$的全排列$p$和$q$，使得$\sum\limits_{n=1}^n \max(p_i,q_i)$最大且不超过给定的$k$</p><p><strong>分析</strong></p><p>最小为$\sum\limits_{n=1}^n i$，最大为$\sum\limits_{n=1}^n \max(i,n-i+1)$，则从$\sum\limits_{n=1}^n i$开始操作，设置数组$a[]$，有$a[i]=i$，设当前可以取的区间为$[l,r]$，设置$sum=\sum\limits_{n=1}^n i$，如果$r &gt;= a[i] \&amp;\&amp; sum + r - a[i] &lt;= k$，则表示$a[i]$可以取$r$，否则只能取$l$</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="keyword">if</span> (k &lt; (<span class="number">1</span> + n) * n / <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)a[i] = i, b[i] = n - i + <span class="number">1</span>, sum += max(a[i], b[i]);</span><br><span class="line">    <span class="keyword">if</span> (sum &lt; k) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; sum &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n)<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n)<span class="built_in">cout</span> &lt;&lt; b[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">1</span>, r = n;</span><br><span class="line">    sum = (<span class="number">1</span> + n) * n / <span class="number">2</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (r &gt;= a[i] &amp;&amp; sum + r - a[i] &lt;= k) &#123;</span><br><span class="line">            sum += r - a[i];</span><br><span class="line">            b[i] = r--;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            b[i] = l++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; k &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cout</span> &lt;&lt; b[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;找到长度为$n$的全排列$p$和$q$，使得$\sum\limits_{n=1}^n \max(p_i,q_i)$最大且不超过给定的$k$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;最小为$\s
+      
+    
+    </summary>
+    
+    
+      <category term="构造" scheme="https://yoursite.com/categories/%E6%9E%84%E9%80%A0/"/>
+    
+    
+      <category term="构造" scheme="https://yoursite.com/tags/%E6%9E%84%E9%80%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>CodeForces 1367F2 Flying Sort (Hard Version)</title>
@@ -501,34 +530,6 @@
     
     
       <category term="思维" scheme="https://yoursite.com/tags/%E6%80%9D%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>像您一样坚持</title>
-    <link href="https://yoursite.com/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/"/>
-    <id>https://yoursite.com/2019/12/16/%E5%83%8F%E6%82%A8%E4%B8%80%E6%A0%B7%E5%9D%9A%E6%8C%81/</id>
-    <published>2019-12-16T14:52:28.000Z</published>
-    <updated>2019-12-16T14:54:52.383Z</updated>
-    
-    <content type="html"><![CDATA[<p>$Clearlove$退役。</p><p>一个时代，过去了。</p><p>我也该像您一样，努力向前。</p><p>命运十字路口，谢谢您曾停留。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;$Clearlove$退役。&lt;/p&gt;
-&lt;p&gt;一个时代，过去了。&lt;/p&gt;
-&lt;p&gt;我也该像您一样，努力向前。&lt;/p&gt;
-&lt;p&gt;命运十字路口，谢谢您曾停留。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="感悟" scheme="https://yoursite.com/categories/%E6%84%9F%E6%82%9F/"/>
-    
     
   </entry>
   
