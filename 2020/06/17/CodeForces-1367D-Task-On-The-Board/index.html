@@ -7,22 +7,22 @@
 
     
     <title>
-        AtCoder AGC043A Range Flip Find Route |
+        CodeForces 1367D Task On The Board |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="题意给一个$n\cdot m$的矩阵，’.’表示白色，’#’表示黑色，需要从$(1,1)$走到$(n,m)$，只允许走右方和下方，且只能经过白色方块，每次操作可以将一个小矩阵中的黑白互换，问最小操作数使得可以从$(1,1)$走到$(n,m)$">
-<meta name="keywords" content="DP">
+    <meta name="description" content="题意 给一个字符串$t$，和一个长度为$m$的数组$b[]$，要求构造一个字符串$s$，$s$中的字符都出现在$t$中，对于$s[i]$而言，对于任意$j$，如果有$s[i]&amp;lt;s[j]$，则$\sum abs(i-j)=b[i]$，即$i$到所有比$s[i]$大的下标距离之和等于$b[i]$">
+<meta name="keywords" content="思维">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AtCoder AGC043A Range Flip Find Route">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;30&#x2F;AtCoder-AGC043A-Range-Flip-Find-Route&#x2F;index.html">
+<meta property="og:title" content="CodeForces 1367D Task On The Board">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;17&#x2F;CodeForces-1367D-Task-On-The-Board&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意给一个$n\cdot m$的矩阵，’.’表示白色，’#’表示黑色，需要从$(1,1)$走到$(n,m)$，只允许走右方和下方，且只能经过白色方块，每次操作可以将一个小矩阵中的黑白互换，问最小操作数使得可以从$(1,1)$走到$(n,m)$">
+<meta property="og:description" content="题意 给一个字符串$t$，和一个长度为$m$的数组$b[]$，要求构造一个字符串$s$，$s$中的字符都出现在$t$中，对于$s[i]$而言，对于任意$j$，如果有$s[i]&amp;lt;s[j]$，则$\sum abs(i-j)=b[i]$，即$i$到所有比$s[i]$大的下标距离之和等于$b[i]$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-30T12:51:31.028Z">
+<meta property="og:updated_time" content="2020-06-17T06:44:58.210Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,29 +60,29 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-AtCoder-AGC043A-Range-Flip-Find-Route" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1367D-Task-On-The-Board" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      AtCoder AGC043A Range Flip Find Route
+      CodeForces 1367D Task On The Board
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2020/04/30/AtCoder-AGC043A-Range-Flip-Find-Route/" class="article-date">
-  <time datetime="2020-04-30T12:50:40.000Z" itemprop="datePublished">2020-04-30</time>
+    <a href="/2020/06/17/CodeForces-1367D-Task-On-The-Board/" class="article-date">
+  <time datetime="2020-06-17T06:21:24.000Z" itemprop="datePublished">2020-06-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/DP/">DP</a>
+    <a class="article-category-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a>
   </div>
 
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
 
   </div>
   
@@ -95,13 +95,13 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p><strong>题意</strong><br>给一个$n\cdot m$的矩阵，’.’表示白色，’#’表示黑色，需要从$(1,1)$走到$(n,m)$，只允许走右方和下方，且只能经过白色方块，每次操作可以将一个小矩阵中的黑白互换，问最小操作数使得可以从$(1,1)$走到$(n,m)$</p>
+        <p><strong>题意</strong></p>
+<p>给一个字符串$t$，和一个长度为$m$的数组$b[]$，要求构造一个字符串$s$，$s$中的字符都出现在$t$中，对于$s[i]$而言，对于任意$j$，如果有$s[i]&lt;s[j]$，则$\sum abs(i-j)=b[i]$，即$i$到所有比$s[i]$大的下标距离之和等于$b[i]$</p>
 <a id="more"></a>
 <p><strong>分析</strong></p>
-<p>对于任意一条路径来说，是黑白相间的，由于只能走右方和下方，对于一段黑色路径，一定可以经过一次操作，使得所有的黑色变为白色，且可以发现，对于隔着一段白色路径的两段黑色路径，一定不能只经过一次操作就可以将这两段黑色路径同时变为白色路径</p>
-<p>因此对于任意一条路径来说，最小操作数即为这条路径的连续黑色路径数</p>
-<p>可采取$DP$，$dp[i][j]$表示从$(1,1)$到$(i,j)$的最小操作数，如果$(i,j)$是白色方块，$(i,j+1)$或$(i+1,j)$是黑色方块，则从$(i,j)$到$(i+1,j)$或$(i,j+1)$的路径的连续黑色路径数加一，但由于最小操作数是取所有路径的最小操作数，取$\min$即可</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dirx[] = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> diry[] = &#123;<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; (a[i] + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    dp[<span class="number">1</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">1</span>] == <span class="string">'#'</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        rep(j, <span class="number">1</span>, m) &#123;</span><br><span class="line">            rep(k, <span class="number">0</span>, <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = i + dirx[k];</span><br><span class="line">                <span class="keyword">int</span> y = j + diry[k];</span><br><span class="line">                <span class="keyword">if</span> (x &lt;= n &amp;&amp; y &lt;= m)</span><br><span class="line">                    dp[x][y] = min(dp[x][y], dp[i][j] + (a[i][j] == <span class="string">'.'</span> &amp;&amp; a[x][y] == <span class="string">'#'</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[n][m];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>字符串$t$提供的就是每个字符的数量，我们发现对于字符最大的位置，$b[i]$肯定为$0$，然后次大的位置，$b[i]$被这些最大的位置影响，以此类推，我们保存一个已经填进去的数组，然后每一次枚举的时候将这个位置与数组中的数求绝对值之和，因为已经填进去的字符肯定比当前位置字符要大，所以如果这个和等于$b[i]$，则这个数这一轮是可以填的，然后就是从大到小枚举字符，如果字符数比当前填的个数大，则选择，否则选小的字符</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> num[maxn];</span><br><span class="line"><span class="keyword">char</span> ans[maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; (s + <span class="number">1</span>) &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; a[i], vis[i] = <span class="literal">false</span>;</span><br><span class="line">    rep(i, <span class="number">0</span>, <span class="number">26</span>)num[i] = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, <span class="built_in">strlen</span>(s + <span class="number">1</span>))++num[s[i] - <span class="string">'a'</span>];</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> m = n;</span><br><span class="line">    <span class="keyword">int</span> now = <span class="number">25</span>;</span><br><span class="line">    <span class="keyword">while</span> (m &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pos;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (vis[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;to:v)</span><br><span class="line">                sum += <span class="built_in">abs</span>(to - i);</span><br><span class="line">            <span class="keyword">if</span> (sum == a[i])</span><br><span class="line">                pos.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;to:pos) &#123;</span><br><span class="line">            vis[to] = <span class="literal">true</span>;</span><br><span class="line">            ++tot;</span><br><span class="line">            v.push_back(to);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (num[now] &lt; tot)</span><br><span class="line">            --now;</span><br><span class="line">        m -= tot;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;to:pos)</span><br><span class="line">            ans[to] = (<span class="keyword">char</span>) (now + <span class="string">'a'</span>);</span><br><span class="line">        --now;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cout</span> &lt;&lt; ans[i];</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
       
     </div>
     
@@ -115,11 +115,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2020/06/15/CodeForces-1311E-Construct-the-Binary-Tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <a href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption"></strong>
         <div class="article-nav-title">
           
-            CodeForces 1311E Construct the Binary Tree
+            CodeForces 1367E Necklace Assembly
           
         </div>
       </a>
@@ -127,8 +127,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/04/23/CodeForces-1343E-Weights-Distributing/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">CodeForces 1343E Weights Distributing</div>
+      <a href="/2020/06/15/CodeForces-1295E-Permutation-Separation/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">CodeForces 1295E Permutation Separation</div>
         <strong class="article-nav-caption"></strong>
       </a>
     

@@ -57,6 +57,197 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-CodeForces-1332D-Walk-on-Matrix" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/CodeForces-1332D-Walk-on-Matrix/">CodeForces 1332D Walk on Matrix</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/04/01/CodeForces-1332D-Walk-on-Matrix/" class="article-date">
+  <time datetime="2020-04-01T02:30:02.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>$Bob$想解决一个问题：一个$n\cdot m$的矩阵，从$(1,1)$出发，只能走右和下，问从$(1,1)$到$(n,m)$的最大$\&amp;$和</p>
+<p>他的算法如下($C++$)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">        dp[i][j] = max(dp[i - <span class="number">1</span>][j] &amp; a[i][j], dp[i][j - <span class="number">1</span>] &amp; a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; dp[n][m];</span><br></pre></td></tr></table></figure>
+<p>已知他的算法并不能得到最大的$\&amp;$和</p>
+<p>给定一个$k$，请构造出一个$n\cdot m$的矩阵，使得最大$\&amp;$和比他的代码得出的答案大$k$</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/01/CodeForces-1332D-Walk-on-Matrix/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-CodeForces-1322B-Present" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/18/CodeForces-1322B-Present/">CodeForces 1322B Present</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/03/18/CodeForces-1322B-Present/" class="article-date">
+  <time datetime="2020-03-18T10:15:14.000Z" itemprop="datePublished">2020-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>求对所有的二元组$(i,j)(i&lt;j)$，$a_i+a_j$的异或和</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/18/CodeForces-1322B-Present/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-交并比" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/">交并比</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/" class="article-date">
+  <time datetime="2020-03-17T05:08:46.000Z" itemprop="datePublished">2020-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DL/">DL</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DL/" rel="tag">DL</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>交并比（ $IoU$ ）函数做的是计算两个边界框交集和并集之比。两个边界框的并集是这个区域，就是属于包含两个边界框区域（绿色阴影表示区域），而交集就是这个比较小的区域（橙色阴影表示区域），那么交并比就是交集的大小，这个橙色阴影面积，然后除以绿色阴影的并集面积。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/17/%E4%BA%A4%E5%B9%B6%E6%AF%94/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-字符编码" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/">字符编码</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="article-date">
+  <time datetime="2020-03-15T05:03:55.000Z" itemprop="datePublished">2020-03-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>$ASCII$编码采用$1 Byte$，最多$256$个字符</p>
+<p>扩展编码（加字节）</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-CodeForces-1324F-Maximum-White-Subtree" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -336,192 +527,6 @@
 </article>
 
   
-    <article id="post-Codeforces-1095E-Almost-Regular-Bracket-Sequence" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/16/Codeforces-1095E-Almost-Regular-Bracket-Sequence/">Codeforces-1095E-Almost Regular Bracket Sequence</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/12/16/Codeforces-1095E-Almost-Regular-Bracket-Sequence/" class="article-date">
-  <time datetime="2019-12-16T09:42:05.000Z" itemprop="datePublished">2019-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给定一个长度为 $n$ 的小括号序列，求有多少个位置满足将这个位置的括号方向反过来后使得新序列是一个合法的括号序列。即在任意一个位置前缀左括号的个数不少于前缀右括号的个数，同时整个序列左右括号个数相同。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/12/16/Codeforces-1095E-Almost-Regular-Bracket-Sequence/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Codeforces-1221D-Make-The-Fence-Great-Again" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/25/Codeforces-1221D-Make-The-Fence-Great-Again/">Codeforces 1221D - Make The Fence Great Again</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/11/25/Codeforces-1221D-Make-The-Fence-Great-Again/" class="article-date">
-  <time datetime="2019-11-25T11:33:05.000Z" itemprop="datePublished">2019-11-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DP/">DP</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>对于$n$个栅栏，对于每个$i$，有高度$a[i]$，对于任意$2&lt;=i&lt;=n$,有$a[i]\not=a[i-1]$，则称该组栅栏为好栅栏，每个栅栏可花费$b[i]$提升$1$个高度（可无限提升）。给一组栅栏，问最少花费多少可以将这组栅栏变为好栅栏。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/25/Codeforces-1221D-Make-The-Fence-Great-Again/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1187E-Tree-Painting" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/25/CodeForces-1187E-Tree-Painting/">CodeForces 1187E Tree Painting</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/11/25/CodeForces-1187E-Tree-Painting/" class="article-date">
-  <time datetime="2019-11-25T11:24:21.000Z" itemprop="datePublished">2019-11-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DP/">DP</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p>题意：给定一棵$n$个点的树 初始全是白点<br>要求你做$n$步操作，每一次选定一个与一个黑点相隔一条边的白点，将它染成黑点，然后获得该白点被染色前所在的白色联通块大小的权值。<br>第一次操作可以任意选点。<br>求可获得的最大权值。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/25/CodeForces-1187E-Tree-Painting/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem/">CodeForces 1174D Ehab and the Expected XOR Problem</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/11/23/CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem/" class="article-date">
-  <time datetime="2019-11-23T09:26:18.000Z" itemprop="datePublished">2019-11-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong><br>给定两个数$n$和$x$，构造一个序列，设为$a[l]$($l$不确定）<br>$1$、$1\leq a[i]&lt;2^{n}$<br>$2$、序列中没有子序列异或和为$0$或$x$<br>$3$、$l$应最长</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/23/CodeForces-1174D-Ehab-and-the-Expected-XOR-Problem/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -553,7 +558,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DL/">DL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DP/">DP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%84%9F%E6%82%9F/">感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DL/">DL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DP/">DP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%84%9F%E6%82%9F/">感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A6%BB%E6%95%A3-DP/">离散,DP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></li></ul>
     </div>
   </div>
 
@@ -573,7 +578,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 20px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 12.5px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 15px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 12.5px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 12.5px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 12.5px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12.5px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 17.5px;">模拟</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
+      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 20px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 15px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 15px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 12.5px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 12.5px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12.5px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 17.5px;">模拟</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
     </div>
   </div>
 
@@ -594,23 +599,23 @@
       <ul>
         
           <li>
+            <a href="/2020/06/17/CodeForces-1367F2-Flying-Sort-Hard-Version/">CodeForces 1367F2 Flying Sort (Hard Version)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/">CodeForces 1367F1 Flying Sort (Easy Version)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/">CodeForces 1367E Necklace Assembly</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/17/CodeForces-1367D-Task-On-The-Board/">CodeForces 1367D Task On The Board</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/15/CodeForces-1295E-Permutation-Separation/">CodeForces 1295E Permutation Separation</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/15/CodeForces-1311E-Construct-the-Binary-Tree/">CodeForces 1311E Construct the Binary Tree</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/30/AtCoder-AGC043A-Range-Flip-Find-Route/">AtCoder AGC043A Range Flip Find Route</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/23/CodeForces-1343E-Weights-Distributing/">CodeForces 1343E Weights Distributing</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/23/CodeForces-1343D-Constant-Palindrome-Sum/">CodeForces 1343D Constant Palindrome Sum</a>
           </li>
         
       </ul>

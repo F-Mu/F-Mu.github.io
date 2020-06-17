@@ -7,17 +7,22 @@
 
     
     <title>
+        CodeForces 1367F2 Flying Sort (Hard Version) |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="F-Mu&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+    <meta name="description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的） 分析 因为数组中的数很大，我们可以将其离散化然后操作，则$a[i]$为连续的整数，设$tot$种不同的数，则$1\leq a[i] \leq tot$ 每个数最多操作一次，否则第一次可以不操作，那么">
+<meta name="keywords" content="DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeForces 1367F2 Flying Sort (Hard Version)">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;17&#x2F;CodeForces-1367F2-Flying-Sort-Hard-Version&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
+<meta property="og:description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的） 分析 因为数组中的数很大，我们可以将其离散化然后操作，则$a[i]$为连续的整数，设$tot$种不同的数，则$1\leq a[i] \leq tot$ 每个数最多操作一次，否则第一次可以不操作，那么">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-17T07:41:22.180Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -55,15 +60,13 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
-  
-    <article id="post-CodeForces-1367F2-Flying-Sort-Hard-Version" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1367F2-Flying-Sort-Hard-Version" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/CodeForces-1367F2-Flying-Sort-Hard-Version/">CodeForces 1367F2 Flying Sort (Hard Version)</a>
+    <h1 class="article-title" itemprop="name">
+      CodeForces 1367F2 Flying Sort (Hard Version)
     </h1>
   
 
@@ -82,6 +85,10 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
 
   </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
   
 
   <div class="article-inner">
@@ -116,456 +123,49 @@
       
     </div>
     
+      <footer class="article-footer">
+        完
+      </footer>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">CodeForces 1367F1 Flying Sort (Easy Version)</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2Ny8yNDE2NQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
   
   
 </article>
-
-  
-    <article id="post-CodeForces-1367F1-Flying-Sort-Easy-Version" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/">CodeForces 1367F1 Flying Sort (Easy Version)</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/" class="article-date">
-  <time datetime="2020-06-17T07:04:58.000Z" itemprop="datePublished">2020-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%A6%BB%E6%95%A3-DP/">离散,DP</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给一个长度为$n$的数组，数组中的数互不相同，你可以有两种操作</p>
-<ul>
-<li>将某一个数放置在数组开头</li>
-<li>将某一个数放置在数组结尾</li>
-</ul>
-<p>问最小操作多少次可以得到一个递增数列</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1367E-Necklace-Assembly" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/">CodeForces 1367E Necklace Assembly</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/" class="article-date">
-  <time datetime="2020-06-17T06:45:22.000Z" itemprop="datePublished">2020-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给定一个字符串$s$，长度为$n$，一根项链为一个环，定义一根项链为$k-beautiful$，则该项链顺时针转$k$下后与原项链相等，给出$k$，请构造一根最长的$k-beautiful$项链，项链由$s$中的一些字符组成，长度为$1$的项链和组成字符全部相等的项链满足任意$k$</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1367D-Task-On-The-Board" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/CodeForces-1367D-Task-On-The-Board/">CodeForces 1367D Task On The Board</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/06/17/CodeForces-1367D-Task-On-The-Board/" class="article-date">
-  <time datetime="2020-06-17T06:21:24.000Z" itemprop="datePublished">2020-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给一个字符串$t$，和一个长度为$m$的数组$b[]$，要求构造一个字符串$s$，$s$中的字符都出现在$t$中，对于$s[i]$而言，对于任意$j$，如果有$s[i]&lt;s[j]$，则$\sum abs(i-j)=b[i]$，即$i$到所有比$s[i]$大的下标距离之和等于$b[i]$</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/06/17/CodeForces-1367D-Task-On-The-Board/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1295E-Permutation-Separation" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/15/CodeForces-1295E-Permutation-Separation/">CodeForces 1295E Permutation Separation</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/06/15/CodeForces-1295E-Permutation-Separation/" class="article-date">
-  <time datetime="2020-06-15T15:56:06.000Z" itemprop="datePublished">2020-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给定一个排列$p$，和一数组$a$，任意取一数$k$（$1\leq k&lt;n$），将排列分为两个序列$p_1$,$p_2$,…,$p_k$和$p_{k+1}$,$p_{k+2}$,…,$p_{n}$，然后将两个序列中的某些数移到另一个序列，使得第一个序列中的数小于第二个序列中的所有数（任意一个序列为空也可），移动$p[i]$的花费为$a[i]$，问最小花费</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/06/15/CodeForces-1295E-Permutation-Separation/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1311E-Construct-the-Binary-Tree" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/15/CodeForces-1311E-Construct-the-Binary-Tree/">CodeForces 1311E Construct the Binary Tree</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/06/15/CodeForces-1311E-Construct-the-Binary-Tree/" class="article-date">
-  <time datetime="2020-06-15T13:51:28.000Z" itemprop="datePublished">2020-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给定$n$和$d$，构造一颗$n$个节点的二叉树（以$1$为根），所有节点到$1$的距离和为$d$，不行输出$NO$，否则输出$YES$和$2$-$n$的父亲编号</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/06/15/CodeForces-1311E-Construct-the-Binary-Tree/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-AtCoder-AGC043A-Range-Flip-Find-Route" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/AtCoder-AGC043A-Range-Flip-Find-Route/">AtCoder AGC043A Range Flip Find Route</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/04/30/AtCoder-AGC043A-Range-Flip-Find-Route/" class="article-date">
-  <time datetime="2020-04-30T12:50:40.000Z" itemprop="datePublished">2020-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/DP/">DP</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong><br>给一个$n\cdot m$的矩阵，’.’表示白色，’#’表示黑色，需要从$(1,1)$走到$(n,m)$，只允许走右方和下方，且只能经过白色方块，每次操作可以将一个小矩阵中的黑白互换，问最小操作数使得可以从$(1,1)$走到$(n,m)$</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/04/30/AtCoder-AGC043A-Range-Flip-Find-Route/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1343E-Weights-Distributing" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/CodeForces-1343E-Weights-Distributing/">CodeForces 1343E Weights Distributing</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/04/23/CodeForces-1343E-Weights-Distributing/" class="article-date">
-  <time datetime="2020-04-23T04:37:00.000Z" itemprop="datePublished">2020-04-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>多组样例</p>
-<p>给定$n,m,a,b,c$，给定一个长度为$m$的数组$p[]$，给定$m$条边，构成一个$n$个点$m$条边的无向图，$Mike$想要从$a$走到$b$，再从$b$走到$c$，你可以在他从$a$出发前将$p[]$中的值分配到$m$条边上，问$Mike$最少走多少路程</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/04/23/CodeForces-1343E-Weights-Distributing/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1343D-Constant-Palindrome-Sum" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/CodeForces-1343D-Constant-Palindrome-Sum/">CodeForces 1343D Constant Palindrome Sum</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/04/23/CodeForces-1343D-Constant-Palindrome-Sum/" class="article-date">
-  <time datetime="2020-04-23T04:10:48.000Z" itemprop="datePublished">2020-04-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>多组样例</p>
-<p>给一个长度为$n$（$n$一定为偶数）的数组$a[]$，给一个正整数$k$，保证数组内元素为小于等于$k$的正整数，你可以每次将数组的一个元素变为小于等于$k$的正整数，问最少多少次操作后，数组能满足对于任意$i$，有$a[i]+a[n-i+1]=x$，$x$为任意值，即所有$a[i]+a[n-i+1]$相等</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/04/23/CodeForces-1343D-Constant-Palindrome-Sum/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-CodeForces-1332E-Height-All-the-Same" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/01/CodeForces-1332E-Height-All-the-Same/">CodeForces 1332E Height All the Same</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/04/01/CodeForces-1332E-Height-All-the-Same/" class="article-date">
-  <time datetime="2020-04-01T04:25:15.000Z" itemprop="datePublished">2020-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>对于一个$n\cdot m$的矩阵，有两种操作</p>
-<ul>
-<li>一个格子加二</li>
-<li>一个格子和另一个相邻的格子同时加一</li>
-</ul>
-<p>通过这两种操作最终使得所有矩阵元素相等</p>
-<p>对于矩阵元素来说，有$L\leq a_{i,j}\leq R(1\leq i\leq n,1\leq j\leq m)$</p>
-<p>问有多少种方案数，答案$\mod 998244353$</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/04/01/CodeForces-1332E-Height-All-the-Same/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-  </nav>
-
-
 </section>
         <aside id="sidebar">
   
