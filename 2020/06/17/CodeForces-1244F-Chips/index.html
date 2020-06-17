@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
 <meta property="og:description" content="题意 有$n$个棋子排成环状，标号为$1..n$ 一开始每个棋子都是黑色或白色的。随后有$k$次操作。操作时，棋子变换的规则如下：我们考虑一个棋子本身以及与其相邻的两个棋子（共$3$个），如果其中白子占多数，那么这个棋子就变成白子，否则这个棋子就变成黑子。注意，对于每个棋子，在确定要变成什么颜色之后，并不会立即改变颜色，而是等到所有棋子确定变成什么颜色后，所有棋子才同时变换颜色。 对于一个棋子$i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-17T09:55:56.725Z">
+<meta property="og:updated_time" content="2020-06-17T14:36:24.643Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -99,6 +99,7 @@
 <p>有$n$个棋子排成环状，标号为$1..n$</p>
 <p>一开始每个棋子都是黑色或白色的。随后有$k$次操作。操作时，棋子变换的规则如下：我们考虑一个棋子本身以及与其相邻的两个棋子（共$3$个），如果其中白子占多数，那么这个棋子就变成白子，否则这个棋子就变成黑子。注意，对于每个棋子，在确定要变成什么颜色之后，并不会立即改变颜色，而是等到所有棋子确定变成什么颜色后，所有棋子才同时变换颜色。</p>
 <p>对于一个棋子$i$，与其相邻的棋子是$i-1$和$i+1$。特别地，对于棋子$1$，与其相邻的棋子是$2$和$n$；对于棋子$n$，与其相邻的棋子是$1$和$n-1$。</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <ul>
 <li>假设某个点在第一轮操作时不需要改变，然后以后其均不需要改变</li>

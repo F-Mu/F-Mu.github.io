@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的） 分析 因为数组中的数很大，我们可以将其离散化然后操作，则$a[i]$为连续的整数，设$tot$种不同的数，则$1\leq a[i] \leq tot$ 每个数最多操作一次，否则第一次可以不操作，那么">
+    <meta name="description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的）">
 <meta name="keywords" content="DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeForces 1367F2 Flying Sort (Hard Version)">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;17&#x2F;CodeForces-1367F2-Flying-Sort-Hard-Version&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的） 分析 因为数组中的数很大，我们可以将其离散化然后操作，则$a[i]$为连续的整数，设$tot$种不同的数，则$1\leq a[i] \leq tot$ 每个数最多操作一次，否则第一次可以不操作，那么">
+<meta property="og:description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-17T12:25:57.871Z">
+<meta property="og:updated_time" content="2020-06-17T14:35:50.468Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -103,6 +103,7 @@
 </ul>
 <p>问最小操作多少次可以得到一个非递减数列</p>
 <p>（比$F1$难在$n$变大，且数组中元素可以有相同的）</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <p>因为数组中的数很大，我们可以将其离散化然后操作，则$a[i]$为连续的整数，设$tot$种不同的数，则$1\leq a[i] \leq tot$</p>
 <p>每个数最多操作一次，否则第一次可以不操作，那么我们就要找最多的不需要操作的数，如果不需要操作，则元素的位置不变，如果有这么一组不需要操作的数，我们可以发现，中间的数字是不能插进去的，所以这组数是在排序后仍相邻的数，则要找到最长的子序列，这个子序列在排序后仍然相邻，考虑以下几种情况</p>
