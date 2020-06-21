@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
 <meta property="og:description" content="题意 给一个长度为$n$的数组，你可以有两种操作  将某一个数放置在数组开头 将某一个数放置在数组结尾  问最小操作多少次可以得到一个非递减数列 （比$F1$难在$n$变大，且数组中元素可以有相同的）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-17T14:38:43.050Z">
+<meta property="og:updated_time" content="2020-06-17T16:22:32.611Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -112,7 +112,7 @@
 <li>这组数中含有两种数，则要形如$i,i,i,i+1,i+1$这种形式，即排序后仍相邻</li>
 <li>这组数含有三种以上的数，即形如$i,i,i+1,i+2,i+2,i+3$这种形式，那么中间的数（$i+1$，$i+2$）一定是被取完了，否则其他的$i+1$或者$i+2$要插进去只能重新排序，与中间数字不能插进去不符，即这几个数并不是相邻，例如$i,i+1,i+2,i+1$这种序列，$i,i+1,i+2$并不满足条件，因为$i+1$并没取完</li>
 </ul>
-<p>设$dp[i][0]$为只取相同的数且以$a[i]$为结尾所得到的最长子序列，$dp[i][1]$为$a[i]$还没取完且所得到的以$a[i]$为结尾最长子序列，$dp[i][2]$为$a[i]$取完且以$a[i]$为结尾所得到的最长子序列，我们用$pos[i]$表示数字$i$上次出现的位置，因为离散化了，所以数组可以满足，状态转移方程为（$r[i]$表示$a[i]$最后出现的位置，$l[a[i]]$表示$a[i]$最早出现的位置，$num[a[i]]$表示$a[i]$的个数，$pos[a[i]]$表示上一个$a[i]$出现的位置）：</p>
+<p>设$dp[i][0]$为只取相同的数且以$a[i]$为结尾所得到的最长子序列，$dp[i][1]$为$a[i]$还没取完且所得到的以$a[i]$为结尾最长子序列，$dp[i][2]$为$a[i]$取完且以$a[i]$为结尾所得到的最长子序列，我们用$pos[i]$表示数字$i$上次出现的位置，因为离散化了，所以数组可以满足，状态转移方程为（$r[a[i]]$表示$a[i]$最后出现的位置，$l[a[i]]$表示$a[i]$最早出现的位置，$num[a[i]]$表示$a[i]$的个数，$pos[a[i]]$表示上一个$a[i]$出现的位置）：</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = dp[pos[a[i]]][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">dp[i][<span class="number">1</span>] = max(dp[pos[a[i]]][<span class="number">1</span>] + <span class="number">1</span>, max(dp[pos[a[i] - <span class="number">1</span>]][<span class="number">0</span>] + <span class="number">1</span>, dp[pos[a[i] - <span class="number">1</span>]][<span class="number">2</span>] + <span class="number">1</span>));</span><br><span class="line"><span class="keyword">if</span> (i == r[a[i]])</span><br><span class="line">    dp[i][<span class="number">2</span>] = dp[l[a[i]]][<span class="number">1</span>] + num[a[i]] - <span class="number">1</span>;</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>$dp[i][0]$，方程表示上一个位置的$a[i]$接着取</li>
@@ -199,7 +199,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DL/">DL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DP/">DP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%84%9F%E6%82%9F/">感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DL/">DL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DP/">DP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%84%9F%E6%82%9F/">感悟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B4%AA%E5%BF%83/">贪心</a></li></ul>
     </div>
   </div>
 
@@ -209,7 +209,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DL/" rel="tag">DL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80/" rel="tag">前缀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%BC%80/" rel="tag">后缀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3/" rel="tag">离散</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DL/" rel="tag">DL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86/" rel="tag">二分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80/" rel="tag">前缀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%BC%80/" rel="tag">后缀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0/" rel="tag">构造</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3/" rel="tag">离散</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
     </div>
   </div>
 
@@ -219,7 +219,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 20px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 15px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 15px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 12.5px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 17.5px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 15px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12.5px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 17.5px;">模拟</a> <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.5px;">离散</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
+      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 20px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 15px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 15px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 12.5px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 10px;">图论</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 17.5px;">思维</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 15px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12.5px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 17.5px;">模拟</a> <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12.5px;">离散</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a>
     </div>
   </div>
 
@@ -240,6 +240,10 @@
       <ul>
         
           <li>
+            <a href="/2020/06/21/CodeForces-1183F-Topforces-Strikes-Back/">CodeForces 1183F Topforces Strikes Back</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/17/CodeForces-1244F-Chips/">CodeForces 1244F Chips</a>
           </li>
         
@@ -253,10 +257,6 @@
         
           <li>
             <a href="/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/">CodeForces 1367F1 Flying Sort (Easy Version)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/17/CodeForces-1367E-Necklace-Assembly/">CodeForces 1367E Necklace Assembly</a>
           </li>
         
       </ul>

@@ -7,22 +7,22 @@
 
     
     <title>
-        CodeForces 1324F Maximum White Subtree |
+        CodeForces 1183F Topforces Strikes Back |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="题意 给定一棵$n$个节点的无根树，每个节点为黑色或者白色，每个点的答案为包含该点的子树（指无根子树）的白色节点数减黑色节点数的最大值">
-<meta name="keywords" content="DP,树">
+    <meta name="description" content="题意 从$n$个数中选出来最多$3$个数，使得这三个数中不存在任意一个数是另一个数的倍数，同时使得这三个数的和最大。 分析 设最大数为$maxx$  取一个数，取$maxx$ 取两个数，假设不取$maxx$，则两个数皆为$maxx$的因数，否则可用$maxx$替换某个因数，而最大为$\frac{maxx}{2}+\frac{maxx}{3}&amp;lt;maxx$，因此必须选$maxx$，另一个挑最大即">
+<meta name="keywords" content="贪心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForces 1324F Maximum White Subtree">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;13&#x2F;CodeForces-1324F-Maximum-White-Subtree&#x2F;index.html">
+<meta property="og:title" content="CodeForces 1183F Topforces Strikes Back">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;21&#x2F;CodeForces-1183F-Topforces-Strikes-Back&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给定一棵$n$个节点的无根树，每个节点为黑色或者白色，每个点的答案为包含该点的子树（指无根子树）的白色节点数减黑色节点数的最大值">
+<meta property="og:description" content="题意 从$n$个数中选出来最多$3$个数，使得这三个数中不存在任意一个数是另一个数的倍数，同时使得这三个数的和最大。 分析 设最大数为$maxx$  取一个数，取$maxx$ 取两个数，假设不取$maxx$，则两个数皆为$maxx$的因数，否则可用$maxx$替换某个因数，而最大为$\frac{maxx}{2}+\frac{maxx}{3}&amp;lt;maxx$，因此必须选$maxx$，另一个挑最大即">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-23T05:30:37.333Z">
+<meta property="og:updated_time" content="2020-06-21T06:06:09.320Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,29 +60,29 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-CodeForces-1324F-Maximum-White-Subtree" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CodeForces-1183F-Topforces-Strikes-Back" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      CodeForces 1324F Maximum White Subtree
+      CodeForces 1183F Topforces Strikes Back
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2020/03/13/CodeForces-1324F-Maximum-White-Subtree/" class="article-date">
-  <time datetime="2020-03-13T03:35:19.000Z" itemprop="datePublished">2020-03-13</time>
+    <a href="/2020/06/21/CodeForces-1183F-Topforces-Strikes-Back/" class="article-date">
+  <time datetime="2020-06-21T05:57:19.000Z" itemprop="datePublished">2020-06-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/DP/">DP</a>
+    <a class="article-category-link" href="/categories/%E8%B4%AA%E5%BF%83/">贪心</a>
   </div>
 
     
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
 
   </div>
   
@@ -96,24 +96,15 @@
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
         <p><strong>题意</strong></p>
-<p>给定一棵$n$个节点的无根树，每个节点为黑色或者白色，每个点的答案为包含该点的子树（指无根子树）的白色节点数减黑色节点数的最大值</p>
-<a id="more"></a>
+<p>从$n$个数中选出来最多$3$个数，使得这三个数中不存在任意一个数是另一个数的倍数，同时使得这三个数的和最大。</p>
 <p><strong>分析</strong></p>
-<p>对于无根树的题一般指定某一个点为根，不妨设为$1$</p>
-<p>我们发现对于$1$号节点，他的某棵子树（将$1$视为根）如果白色节点数大于黑色节点数，则他的答案加上该差值</p>
-<p>我们先采用树形$DP$将所有节点都这样统计一遍，这样就获得了来自子树的贡献</p>
-<p>即$a[i]$为以$i$为根，所有白色节点数大于黑色节点数的子树的贡献</p>
-<p>然后对于除$1$节点以外所有节点，还需要统计与父亲这一棵无向子树的关系</p>
-<p>设遍历到$now$节点，子树节点为$to$节点</p>
+<p>设最大数为$maxx$</p>
 <ul>
-<li><p>$a[to]&gt;0$，则$now$的答案子树包括$to$节点，$to$节点选择$now$的答案子树和$to$的答案子树中的最大值（因为已经包括，所以不是加和）</p>
-<script type="math/tex; mode=display">
-a[to] = max(a[to], a[now])</script></li>
-<li><p>$a[to]\leq0$，则$now$的答案子树不包括$to$节点，$to$节点选择与$now$的答案子树进行拼接或不拼接的最大值（因为不包括，所以是加和）</p>
-<script type="math/tex; mode=display">
-a[to] = max(a[to], a[now] + a[to])</script></li>
+<li>取一个数，取$maxx$</li>
+<li>取两个数，假设不取$maxx$，则两个数皆为$maxx$的因数，否则可用$maxx$替换某个因数，而最大为$\frac{maxx}{2}+\frac{maxx}{3}&lt;maxx$，因此必须选$maxx$，另一个挑最大即可</li>
+<li>取三个数，如果三个数皆为$maxx$的因数，则只有$\frac{maxx}{2}+\frac{maxx}{3}+\frac{maxx}{5}&gt;maxx$满足，特判后取到$maxx$，并将$maxx$的所有因数标为不可取，然后就是取两个数的情况了</li>
 </ul>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v[maxn];</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;to:v[now]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (to == pre)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        dfs(to, now);</span><br><span class="line">        <span class="keyword">if</span> (a[to] &gt; <span class="number">0</span>)</span><br><span class="line">            a[now] += a[to];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;to:v[now]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (to == pre)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[to] &gt; <span class="number">0</span>)</span><br><span class="line">            a[to] = max(a[to], a[now]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a[to] = max(a[to], a[now] + a[to]);</span><br><span class="line">        dfs2(to, now);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">if</span> (a[i] == <span class="number">0</span>)</span><br><span class="line">            a[i] = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        v[x].push_back(y);</span><br><span class="line">        v[y].push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    dfs2(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; a[i], ans = max(a[i], ans);</span><br><span class="line">    sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> maxx = a[n];</span><br><span class="line">    <span class="keyword">bool</span> flag1 = <span class="literal">false</span>, flag2 = <span class="literal">false</span>, flag3 = <span class="literal">false</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] * <span class="number">2</span> == maxx)</span><br><span class="line">            flag1 = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[i] * <span class="number">3</span> == maxx)</span><br><span class="line">            flag2 = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (a[i] * <span class="number">5</span> == maxx)</span><br><span class="line">            flag3 = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag1 &amp;&amp; flag2 &amp;&amp; flag3)</span><br><span class="line">        ans = max(ans, maxx / <span class="number">2</span> + maxx / <span class="number">3</span> + maxx / <span class="number">5</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="keyword">if</span> (a[n] % a[i] == <span class="number">0</span>)a[i] = <span class="number">-1</span>;</span><br><span class="line">    sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    ans = max(ans, maxx + a[n]);</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="number">-1</span> &amp;&amp; a[n] % a[i] != <span class="number">0</span>)</span><br><span class="line">            ans = max(ans, maxx + a[n] + a[i]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -128,20 +119,11 @@ a[to] = max(a[to], a[now] + a[to])</script></li>
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            字符编码
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/03/13/CodeForces-1324E-Sleeping-Schedule/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">CodeForces 1324E Sleeping Schedule</div>
+      <a href="/2020/06/17/CodeForces-1244F-Chips/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">CodeForces 1244F Chips</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
