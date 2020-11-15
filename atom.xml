@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-10-01T04:00:57.027Z</updated>
+  <updated>2020-11-15T13:21:29.849Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AtCoder ABC183F Confluence</title>
+    <link href="https://yoursite.com/2020/11/15/AtCoder-ABC183F-Confluence/"/>
+    <id>https://yoursite.com/2020/11/15/AtCoder-ABC183F-Confluence/</id>
+    <published>2020-11-15T13:11:13.000Z</published>
+    <updated>2020-11-15T13:21:29.849Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题意</strong></p><p>$n$个人，每个人属于一个班级$ci$，这些人会有些小团体（并查集）<br>两种操作：</p><ul><li>$1$ $a$ $b$，将$a$所在的集体和$b$所在的集体合并</li><li>$2$ $x$ $y$，问在$x$的集体中有多少人在$y$班</li></ul><p><strong>分析</strong></p><p>看$1$操作是并查集，每一个人一开始有一个权值，如果两个集体合并，那么需要将他们的权值合并<br>看上去就像是线段树合并（前段时间刚学的）<br>一开始所有人都有一个根，对于他们的班级权值为1<br>对于1操作，找到a和b的祖先节点，合并两者的线段树，并进行并查集合并<br>对于2操作，查询即可<br>数组要开大点，反正有1024MB</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="comment">//#define int ll</span></span><br><span class="line"><span class="comment">//#define ls st&lt;&lt;1</span></span><br><span class="line"><span class="comment">//#define rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e7</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> ls[maxn], rs[maxn], val[maxn], n, tot;</span><br><span class="line"><span class="keyword">int</span> pre[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pre[x] != x)</span><br><span class="line">        pre[x] = find(pre[x]);</span><br><span class="line">    <span class="keyword">return</span> pre[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rt[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Modify</span><span class="params">(<span class="keyword">int</span> &amp;u, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!u) u = ++tot;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        val[u]++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p &lt;= mid) Modify(ls[u], l, mid, p);</span><br><span class="line">    <span class="keyword">else</span> Modify(rs[u], mid + <span class="number">1</span>, r, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!u || !v) <span class="keyword">return</span> u | v;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        val[u] += val[v];</span><br><span class="line">        <span class="keyword">return</span> u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    ls[u] = merge(ls[u], ls[v], l, mid);</span><br><span class="line">    rs[u] = merge(rs[u], rs[v], mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="keyword">return</span> u;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span> val[u];</span><br><span class="line">    <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p &lt;= mid) <span class="keyword">return</span> query(ls[u], l, mid, p);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> query(rs[u], mid + <span class="number">1</span>, r, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)rt[i] = i, pre[i] = i;</span><br><span class="line">    tot = n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">        Modify(rt[i], <span class="number">1</span>, n, c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="keyword">int</span> op, x, y;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; op &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">            x = find(x);</span><br><span class="line">            y = find(y);</span><br><span class="line">            <span class="keyword">if</span> (x == y)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            merge(rt[x], rt[y], <span class="number">1</span>, n);</span><br><span class="line">            pre[y] = x;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            x = find(x);</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; query(rt[x], <span class="number">1</span>, n, y) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$n$个人，每个人属于一个班级$ci$，这些人会有些小团体（并查集）&lt;br&gt;两种操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$1$ $a$ $b$，将$a$所在的集体和$b$所在的集体合并&lt;/li&gt;
+&lt;li&gt;$2$ $x$ $y$
+      
+    
+    </summary>
+    
+    
+      <category term="合并线段树" scheme="https://yoursite.com/categories/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+    
+      <category term="合并线段树" scheme="https://yoursite.com/tags/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="并查集" scheme="https://yoursite.com/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>CodeForces 1408D Searchlights</title>
@@ -514,30 +546,6 @@
     
     
       <category term="DL" scheme="https://yoursite.com/tags/DL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字符编码</title>
-    <link href="https://yoursite.com/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
-    <id>https://yoursite.com/2020/03/15/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</id>
-    <published>2020-03-15T05:03:55.000Z</published>
-    <updated>2020-03-15T05:33:07.465Z</updated>
-    
-    <content type="html"><![CDATA[<p>$ASCII$编码采用$1 Byte$，最多$256$个字符</p><p>扩展编码（加字节）</p><a id="more"></a><ul><li>$ISO8859(1-15)$：西欧语言</li><li>$GB2132,GBK,GB18030$：$ASCII+$中文$(GB18030&gt;GBK&gt;GB2312)$</li><li>$Big5$：$ASCII+$繁体中文</li><li>$Shift\_JIS$：$ASCII+$日文</li><li>$Unicode$（字符集）<ul><li>目标<ul><li>不断扩充，存储全世界所有的字符</li></ul></li><li>编码方案<ul><li>$UTF-8$，兼容$ASCII$，变长（$1-4$个字节存储字符），经济，方便传输</li><li>$UTF-16$，变长($2-4$个字节)来存储所有字符</li><li>$UTF-32$，用$4$个字节存储所有字符</li></ul></li></ul></li></ul><p>$ANSI$编码</p><ul><li>$Windows$上非$Unicode$的默认编码</li><li>在简体中文$Windows$操作系统中，$ANSI$编码代表$GBK$编码</li><li>在繁体中文$Windows$操作系统中，$ANSI$编码代表$Big5$编码</li><li>$ANSI$编码文件不能兼容使用</li></ul><p>$Java$的字符编码</p><ul><li>源文件编码：采用$UTF-8$编码</li><li>程序内部采用$UTF-16$编码</li><li>和外界（文本文件）的输入输出尽量采用$UTF-8$编码</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;$ASCII$编码采用$1 Byte$，最多$256$个字符&lt;/p&gt;
-&lt;p&gt;扩展编码（加字节）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://yoursite.com/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://yoursite.com/tags/Java/"/>
     
   </entry>
   
