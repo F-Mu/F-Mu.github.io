@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。 分析 通过简单版本大概了解了这题要枚举最小值来判断个数，那么我们枚举最小值$i$，其他的数都要在$[i,i+k]$中取，而不能全部都在$[i+1,i+k]$中取，否则与枚举的最小值$i$不符。 采用容斥原理，将在$[i,i+k]$取数的情况减去在$[i+1,i+k">
+    <meta name="description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。">
 <meta name="keywords" content="组合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 1462E2 Close Tuples (hard version)">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;16&#x2F;Codeforces-1462E2-Close-Tuples-hard-version&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。 分析 通过简单版本大概了解了这题要枚举最小值来判断个数，那么我们枚举最小值$i$，其他的数都要在$[i,i+k]$中取，而不能全部都在$[i+1,i+k]$中取，否则与枚举的最小值$i$不符。 采用容斥原理，将在$[i,i+k]$取数的情况减去在$[i+1,i+k">
+<meta property="og:description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-16T03:28:37.165Z">
+<meta property="og:updated_time" content="2020-12-16T03:44:46.792Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -97,6 +97,7 @@
       
         <p><strong>题意</strong></p>
 <p>给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <p>通过简单版本大概了解了这题要枚举最小值来判断个数，那么我们枚举最小值$i$，其他的数都要在$[i,i+k]$中取，而不能全部都在$[i+1,i+k]$中取，否则与枚举的最小值$i$不符。</p>
 <p>采用容斥原理，将在$[i,i+k]$取数的情况减去在$[i+1,i+k]$取数的情况即可。</p>
