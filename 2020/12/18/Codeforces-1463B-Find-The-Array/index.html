@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 给一个长度为$n$的数组$a$，令$S$为其总和，定义数组$b$为美丽的当且仅当：  $1\leq b_i\leq 10^9(1\leq i\leq n)$ 对于$(b_i,b_{i+1})$，$b_i$整除$b_{i+1}$或者$b_{i+1}$整除$b_i$ $2\sum_{i=1}^{n}|a_i-b_i|\leq S$  输出$b$数组。 分析 首先难办的是第三个条件，我们想一想，如">
+    <meta name="description" content="题意 给一个长度为$n$的数组$a$，令$S$为其总和，定义数组$b$为美丽的当且仅当：  $1\leq b_i\leq 10^9(1\leq i\leq n)$ 对于$(b_i,b_{i+1})$，$b_i$整除$b_{i+1}$或者$b_{i+1}$整除$b_i$ $2\sum_{i=1}^{n}|a_i-b_i|\leq S$  输出$b$数组。">
 <meta name="keywords" content="模拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 1463B Find The Array">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;18&#x2F;Codeforces-1463B-Find-The-Array&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给一个长度为$n$的数组$a$，令$S$为其总和，定义数组$b$为美丽的当且仅当：  $1\leq b_i\leq 10^9(1\leq i\leq n)$ 对于$(b_i,b_{i+1})$，$b_i$整除$b_{i+1}$或者$b_{i+1}$整除$b_i$ $2\sum_{i=1}^{n}|a_i-b_i|\leq S$  输出$b$数组。 分析 首先难办的是第三个条件，我们想一想，如">
+<meta property="og:description" content="题意 给一个长度为$n$的数组$a$，令$S$为其总和，定义数组$b$为美丽的当且仅当：  $1\leq b_i\leq 10^9(1\leq i\leq n)$ 对于$(b_i,b_{i+1})$，$b_i$整除$b_{i+1}$或者$b_{i+1}$整除$b_i$ $2\sum_{i=1}^{n}|a_i-b_i|\leq S$  输出$b$数组。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-17T16:55:45.578Z">
+<meta property="og:updated_time" content="2020-12-17T16:58:17.443Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -103,6 +103,7 @@
 <li>$2\sum_{i=1}^{n}|a_i-b_i|\leq S$</li>
 </ul>
 <p>输出$b$数组。</p>
+<a id="more"></a>
 <p><strong>分析</strong></p>
 <p>首先难办的是第三个条件，我们想一想，如果这个条件要满足，尽量$b_i\in[a_i<em>1.5,a_i</em>0.5]$，那么我们看下界可以注意到，如果一个数是$2$的幂，那么其二分之一即是下界，而若其不是$2$的幂，那么若其只保留二进制最高位，那么其必然在区间里。</p>
 <p>对于第二个条件也有直觉都是同一因子的倍数，而对于第三个条件的$2$，也可以想到构造$2$的幂数组。</p>
@@ -133,8 +134,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2020/12/18/Codeforces-1463A-Dungeon/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Codeforces 1463A Dungeon</div>
+      <a href="/2020/12/16/Codeforces-1462F-The-Treasure-of-The-Segments/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Codeforces 1462F The Treasure of The Segments</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -235,15 +236,15 @@
           </li>
         
           <li>
-            <a href="/2020/12/18/Codeforces-1463A-Dungeon/">Codeforces 1463A Dungeon</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/16/Codeforces-1462F-The-Treasure-of-The-Segments/">Codeforces 1462F The Treasure of The Segments</a>
           </li>
         
           <li>
             <a href="/2020/12/16/Codeforces-1462E2-Close-Tuples-hard-version/">Codeforces 1462E2 Close Tuples (hard version)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/">Codeforces 1462E1 Close Tuples (easy version)</a>
           </li>
         
       </ul>

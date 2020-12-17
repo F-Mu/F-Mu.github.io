@@ -14,12 +14,15 @@
     
     
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="题意 给机器人$n$个操作，每个操作有一个$t_i$和一个$x_i$，意为在$t_i$时刻，会下令让机器人去往$x_i$。 机器人最初在$0$位置，其速度为每秒$1$单位，如果其在移动过程中被下令，它会忽视这个命令。 如果在$[t_i,t_{i+1}]$中任意时刻其到达了$x_i$，那么第$i$个命令视为有效的（注意$t_{n+1}=+\infty$），问有多少个有效的命令。">
+<meta name="keywords" content="模拟">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 1463C Busy Robot">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;18&#x2F;Codeforces-1463C-Busy-Robot&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
+<meta property="og:description" content="题意 给机器人$n$个操作，每个操作有一个$t_i$和一个$x_i$，意为在$t_i$时刻，会下令让机器人去往$x_i$。 机器人最初在$0$位置，其速度为每秒$1$单位，如果其在移动过程中被下令，它会忽视这个命令。 如果在$[t_i,t_{i+1}]$中任意时刻其到达了$x_i$，那么第$i$个命令视为有效的（注意$t_{n+1}=+\infty$），问有多少个有效的命令。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-17T16:56:58.954Z">
+<meta property="og:updated_time" content="2020-12-17T17:12:04.399Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -74,7 +77,13 @@
   <time datetime="2020-12-17T16:56:58.000Z" itemprop="datePublished">2020-12-18</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a>
+  </div>
+
     
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
+
   </div>
   
     <span id="busuanzi_container_page_pv">
@@ -86,7 +95,24 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        
+        <p><strong>题意</strong></p>
+<p>给机器人$n$个操作，每个操作有一个$t_i$和一个$x_i$，意为在$t_i$时刻，会下令让机器人去往$x_i$。</p>
+<p>机器人最初在$0$位置，其速度为每秒$1$单位，如果其在移动过程中被下令，它会忽视这个命令。</p>
+<p>如果在$[t_i,t_{i+1}]$中任意时刻其到达了$x_i$，那么第$i$个命令视为有效的（注意$t_{n+1}=+\infty$），问有多少个有效的命令。</p>
+<a id="more"></a>
+<p><strong>分析</strong></p>
+<p>看题就可以知道是一个模拟，假设机器人现在位置是$prex$，现在的时间是$pret$，那么对于第$i$号指令来说</p>
+<ul>
+<li>如果$t\leq t_i$，那么它会执行这个指令，会在$pret+abs(x_i-x)$时刻到达$x_i$处，花费时间为$abs(x_i-x)$，且在$[pret,pret+abs(x_i-x)]$过程中，它会忽视这个指令，那么我们可以将当前时间$t$视为$pret+abs(x_i-x)$，其目的地为$x$。</li>
+<li>如果$t&gt;t_i$，那么它会忽视这个指令。</li>
+</ul>
+<p>考虑统计答案</p>
+<ul>
+<li>如果$t\leq t_i$，那么如果其到达了$x$还没有接到下一个命令，即$t_i+abs(x_i-x)\leq t_{i+1}$，那么该命令有效。</li>
+<li>如果$t&gt;t_i$，那么首先得保证$x_i$在$prex$到$x$的路上，其次注意到到达$x_i$的时间为$pret+abs(x_i-prex)$，按照题意，如果其时间在$[t_i,t_{i+1}]$间，那么该命令有效。</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line">pii a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; a[i].first &gt;&gt; a[i].second;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> prex = <span class="number">0</span>, pret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    a[n + <span class="number">1</span>].first = LLONG_MAX;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (t &lt;= a[i].first) &#123;</span><br><span class="line">            prex = x;</span><br><span class="line">            pret = a[i].first;</span><br><span class="line">            t = a[i].first + <span class="built_in">abs</span>(a[i].second - x);</span><br><span class="line">            x = a[i].second;</span><br><span class="line">            <span class="keyword">if</span> (t &lt;= a[i + <span class="number">1</span>].first)</span><br><span class="line">                ++num;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> l = min(prex, x), r = max(prex, x);</span><br><span class="line">            <span class="keyword">if</span> (a[i].second &gt;= l &amp;&amp; a[i].second &lt;= r) &#123;</span><br><span class="line">                <span class="keyword">int</span> tim = pret + <span class="built_in">abs</span>(a[i].second - prex);</span><br><span class="line">                <span class="keyword">if</span> (tim &gt;= a[i].first &amp;&amp; tim &lt;= a[i + <span class="number">1</span>].first)</span><br><span class="line">                    ++num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
       
     </div>
     
@@ -205,15 +231,15 @@
           </li>
         
           <li>
-            <a href="/2020/12/18/Codeforces-1463A-Dungeon/">Codeforces 1463A Dungeon</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/16/Codeforces-1462F-The-Treasure-of-The-Segments/">Codeforces 1462F The Treasure of The Segments</a>
           </li>
         
           <li>
             <a href="/2020/12/16/Codeforces-1462E2-Close-Tuples-hard-version/">Codeforces 1462E2 Close Tuples (hard version)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/">Codeforces 1462E1 Close Tuples (easy version)</a>
           </li>
         
       </ul>

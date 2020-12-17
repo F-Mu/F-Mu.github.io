@@ -74,7 +74,13 @@
   <time datetime="2020-12-17T16:56:58.000Z" itemprop="datePublished">2020-12-18</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a>
+  </div>
+
     
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
+
   </div>
   
 
@@ -82,6 +88,14 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
+        <p><strong>题意</strong></p>
+<p>给机器人$n$个操作，每个操作有一个$t_i$和一个$x_i$，意为在$t_i$时刻，会下令让机器人去往$x_i$。</p>
+<p>机器人最初在$0$位置，其速度为每秒$1$单位，如果其在移动过程中被下令，它会忽视这个命令。</p>
+<p>如果在$[t_i,t_{i+1}]$中任意时刻其到达了$x_i$，那么第$i$个命令视为有效的（注意$t_{n+1}=+\infty$），问有多少个有效的命令。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/12/18/Codeforces-1463C-Busy-Robot/#more">阅读全文</a>
+          </p>
         
       
     </div>
@@ -131,58 +145,11 @@
 <li>$2\sum_{i=1}^{n}|a_i-b_i|\leq S$</li>
 </ul>
 <p>输出$b$数组。</p>
-<p><strong>分析</strong></p>
-<p>首先难办的是第三个条件，我们想一想，如果这个条件要满足，尽量$b_i\in[a_i<em>1.5,a_i</em>0.5]$，那么我们看下界可以注意到，如果一个数是$2$的幂，那么其二分之一即是下界，而若其不是$2$的幂，那么若其只保留二进制最高位，那么其必然在区间里。</p>
-<p>对于第二个条件也有直觉都是同一因子的倍数，而对于第三个条件的$2$，也可以想到构造$2$的幂数组。</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    rep(i, <span class="number">0</span>, <span class="number">35</span>)v.push_back(<span class="number">1l</span>l &lt;&lt; i);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> pos = lower_bound(v.begin(), v.end(), x) - v.begin() - <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; v[pos] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Codeforces-1463A-Dungeon" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/18/Codeforces-1463A-Dungeon/">Codeforces 1463A Dungeon</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/12/18/Codeforces-1463A-Dungeon/" class="article-date">
-  <time datetime="2020-12-17T16:31:31.000Z" itemprop="datePublished">2020-12-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>有三只怪物，血量分别为$a$、$b$、$c$，你一次攻击可以降低某只怪物$1$单位血量，第$7$的倍数次（$7$、$14$、$21$、…）会是一次$enhanced$ $shot$，三只怪物同时降低$1$单位血量，问最后一次攻击能否是$enhanced$ $shot$，并同时杀死所有怪物。</p>
-<p><strong>分析</strong></p>
-<p>对于一轮循环，造成的总伤害为$9$点，那么我们只需要考虑最后一波攻击，所有的怪物血量都大于$0$，且总和为$9$即满足条件。</p>
-<p>那么首先对于$a+b+c$，其和须是$9$的倍数。同时我们考虑总共要攻击的轮数，如果轮数小于或等于某一只怪物的血量，那么这只怪物会在每轮攻击的余波中被杀死，反之，我们只需要将其降至轮数$+1$的血量即可，这样可以保证最后一波每只怪物的血量都大于$0$。</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    <span class="keyword">int</span> num = (a + b + c) / <span class="number">9</span>;</span><br><span class="line">    <span class="keyword">if</span> (num &lt; a &amp;&amp; num &lt; b &amp;&amp; num &lt; c &amp;&amp; (a + b + c) % <span class="number">9</span> == <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/12/18/Codeforces-1463B-Find-The-Array/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
@@ -522,6 +489,57 @@
 </article>
 
   
+    <article id="post-AtCoder-ABC183F-Confluence" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/AtCoder-ABC183F-Confluence/">AtCoder ABC183F Confluence</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/11/15/AtCoder-ABC183F-Confluence/" class="article-date">
+  <time datetime="2020-11-15T13:11:13.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/">合并线段树</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">合并线段树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>$n$个人，每个人属于一个班级$ci$，这些人会有些小团体（并查集）<br>两种操作：</p>
+<ul>
+<li>$1$ $a$ $b$，将$a$所在的集体和$b$所在的集体合并</li>
+<li>$2$ $x$ $y$，问在$x$的集体中有多少人在$y$班</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2020/11/15/AtCoder-ABC183F-Confluence/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
 
 
   <nav id="page-nav">
@@ -602,15 +620,15 @@
           </li>
         
           <li>
-            <a href="/2020/12/18/Codeforces-1463A-Dungeon/">Codeforces 1463A Dungeon</a>
-          </li>
-        
-          <li>
             <a href="/2020/12/16/Codeforces-1462F-The-Treasure-of-The-Segments/">Codeforces 1462F The Treasure of The Segments</a>
           </li>
         
           <li>
             <a href="/2020/12/16/Codeforces-1462E2-Close-Tuples-hard-version/">Codeforces 1462E2 Close Tuples (hard version)</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/">Codeforces 1462E1 Close Tuples (easy version)</a>
           </li>
         
       </ul>
