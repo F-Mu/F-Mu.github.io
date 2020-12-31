@@ -54,6 +54,148 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-Codeforces-1466E-Apollo-versus-Pan" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/31/Codeforces-1466E-Apollo-versus-Pan/">Codeforces 1466E Apollo versus Pan</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/12/31/Codeforces-1466E-Apollo-versus-Pan/" class="article-date">
+  <time datetime="2020-12-31T10:05:03.000Z" itemprop="datePublished">2020-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E8%AE%BA/">数论</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
+
+  </div>
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问</p>
+<script type="math/tex; mode=display">
+\sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&x_j)\cdot(x_j|x_k) \mod 1e9+7</script><p><strong>分析</strong></p>
+<p>模拟是$n^3$，显然不现实。</p>
+<p>对于位运算想到是否可以拆位，每一位独立的运算，独立的做出贡献，发现如果$x_j$的某一个为$1$，那么一定能做出贡献，考虑这一位能做出多少贡献。</p>
+<p>手玩下数据可以发现，其他位会产生影响，所以独立拆位很难处理，但是给了我们启发，可以考虑通过枚举$x_j$，来获取答案，那么将公式化为$\sum\limits_{j=1}^n(\sum\limits_{i=1}^n(x_i\&amp;x_j)\cdot\sum\limits_{k=1}^n(x_j|x_k))$。</p>
+<p>考虑第一项和，对于$x_j$ 的第$y$位，如果该位是$1$，需要分别与$x_1,x_2,…,x_n$做$\&amp;$运算，而如果$x_i$的该位是$1$，则第一项就要加上$1&lt;&lt;y$，那么我们可以考虑预处理所有数在某一位上的和，假设$sum[y]$表示所有数在第$y$位上做的贡献，那么如果$x_j$的第$y$位是$1$，第一个式子的和就要加上$sum[y]$。</p>
+<p>同理考虑第二项和，对于$x_j$的第$y$位，如果该位是$1$，那么对于所有数其$|$运算，该位都能获得$1&lt;&lt;y$的值，所以和加上$(1&lt;&lt;y)*n$，而如果该位不是$1$，那么如果$x_k$的该位是$1$，则第二项和要加上$1&lt;&lt;y$，否则不需要，逻辑与上式相同，则加上$sum[y]$即可</p>
+<p>最后乘起来即可，时间复杂度$O(60*n)$</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> sum[<span class="number">65</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">0</span>, <span class="number">60</span>)sum[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        tot = (tot + a[i]) % mod;</span><br><span class="line">        rep(j, <span class="number">0</span>, <span class="number">59</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((a[i] &gt;&gt; j) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                sum[j] = ((<span class="number">1l</span>l &lt;&lt; j) % mod + sum[j]) % mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">int</span> toti = <span class="number">0</span>;</span><br><span class="line">        rep(j, <span class="number">0</span>, <span class="number">59</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((a[i] &gt;&gt; j) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                toti = (toti + sum[j]) % mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> totk = <span class="number">0</span>;</span><br><span class="line">        rep(j, <span class="number">0</span>, <span class="number">59</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!((a[i] &gt;&gt; j) &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">                totk = (totk + sum[j]) % mod;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                totk = (totk + (<span class="number">1l</span>l &lt;&lt; j) % mod * n % mod) % mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = (ans + toti * (totk) % mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Codeforces-1466D-13th-Labour-of-Heracles" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/31/Codeforces-1466D-13th-Labour-of-Heracles/">Codeforces 1466D 13th Labour of Heracles</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/12/31/Codeforces-1466D-13th-Labour-of-Heracles/" class="article-date">
+  <time datetime="2020-12-31T09:58:46.000Z" itemprop="datePublished">2020-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%B4%AA%E5%BF%83/">贪心</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+  </div>
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>给一棵大小为$n$的树，每个节点有权值$a_i$,对其染色，染色时需保证所有相同颜色的边可以组成一颗树，定义树的权值为其不同颜色的子树上的所有节点的权值和，问染$1$~$n-1$种颜色，每次可以得到最大的树的权值。</p>
+<p><strong>分析</strong></p>
+<p>每增加一种颜色的时候，因为只有其根节点与其他颜色相邻，所以每次只会增加其根节点的权值，那么每次挑一个拥有最大权值的节点，将其一颗子树染成不同颜色即可，那么最多染其出度减一次（因为只有这么多棵子树），维护一个优先队列和一个出度数组即可。</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> in[maxn], a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)in[i] = <span class="number">0</span>, <span class="built_in">cin</span> &gt;&gt; a[i], sum += a[i];</span><br><span class="line">    priority_queue&lt;pii&gt; q;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        ++in[x], ++in[y];</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (in[i] &gt;= <span class="number">2</span>)</span><br><span class="line">            q.push(&#123;a[i], i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; sum &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="keyword">if</span> (!q.empty()) &#123;</span><br><span class="line">            pii now = q.top();</span><br><span class="line">            q.pop();</span><br><span class="line">            sum += now.first;</span><br><span class="line">            --in[now.second];</span><br><span class="line">            <span class="keyword">if</span> (in[now.second] &gt; <span class="number">1</span>)</span><br><span class="line">                q.push(&#123;now.first, now.second&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-Codeforces-1466C-Canine-poetry" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/31/Codeforces-1466C-Canine-poetry/">Codeforces 1466C Canine poetry</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2020/12/31/Codeforces-1466C-Canine-poetry/" class="article-date">
+  <time datetime="2020-12-31T09:55:58.000Z" itemprop="datePublished">2020-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%B4%AA%E5%BF%83/">贪心</a>
+  </div>
+
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+  </div>
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p><strong>题意</strong></p>
+<p>给一个长度为字符串，请问最少改多少个字符，能够使得该字符串中不存在回文子串</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/12/31/Codeforces-1466C-Canine-poetry/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-2020年终总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -384,145 +526,6 @@
 </article>
 
   
-    <article id="post-Codeforces-1462E1-Close-Tuples-easy-version" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/">Codeforces 1462E1 Close Tuples (easy version)</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/" class="article-date">
-  <time datetime="2020-12-16T03:14:09.000Z" itemprop="datePublished">2020-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%BB%84%E5%90%88/">组合</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E5%90%88/" rel="tag">组合</a></li></ul>
-
-  </div>
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种。在$easy$ $version$下</p>
-<p>$m=3$，$k=2$。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Codeforces-1462D-Add-to-Neighbour-and-Remove" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/Codeforces-1462D-Add-to-Neighbour-and-Remove/">Codeforces 1462D Add to Neighbour and Remove</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/12/16/Codeforces-1462D-Add-to-Neighbour-and-Remove/" class="article-date">
-  <time datetime="2020-12-16T03:03:54.000Z" itemprop="datePublished">2020-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li></ul>
-
-  </div>
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给一个长度为$n(1\leq n\leq 3000)$的数组$a$，每次操作可以将一个数字加到相邻的数字并在数组中删除这个数字，请问最少的操作，使得数组中各项相等。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/12/16/Codeforces-1462D-Add-to-Neighbour-and-Remove/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Codeforces-1462C-Unique-Number" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/Codeforces-1462C-Unique-Number/">Codeforces 1462C Unique Number</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2020/12/16/Codeforces-1462C-Unique-Number/" class="article-date">
-  <time datetime="2020-12-16T02:58:36.000Z" itemprop="datePublished">2020-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a>
-  </div>
-
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
-
-  </div>
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
-      
-        <p><strong>题意</strong></p>
-<p>给一个数字$x(1\leq x\leq 50)$，问最小数字，该数字的各位不相同，且加和为$x$。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/12/16/Codeforces-1462C-Unique-Number/#more">阅读全文</a>
-          </p>
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -574,7 +577,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 14px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 14px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 12px;">前缀和</a> <a href="/tags/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">合并线段树</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 14px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 12px;">图论</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 16px;">思维</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 12px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 14px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 20px;">模拟</a> <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12px;">离散</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 12px;">组合</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a>
+      <a href="/tags/DL/" style="font-size: 10px;">DL</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 14px;">二分</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 14px;">二进制</a> <a href="/tags/%E5%89%8D%E7%BC%80/" style="font-size: 10px;">前缀</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 12px;">前缀和</a> <a href="/tags/%E5%90%88%E5%B9%B6%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">合并线段树</a> <a href="/tags/%E5%90%8E%E7%BC%80/" style="font-size: 14px;">后缀</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 12px;">图论</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 16px;">思维</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 12px;">排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 12px;">数论</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 10px;">最短路</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 14px;">构造</a> <a href="/tags/%E6%A0%91/" style="font-size: 12px;">树</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 20px;">模拟</a> <a href="/tags/%E7%A6%BB%E6%95%A3/" style="font-size: 12px;">离散</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 12px;">组合</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 14px;">贪心</a>
     </div>
   </div>
 
@@ -595,23 +598,23 @@
       <ul>
         
           <li>
+            <a href="/2020/12/31/Codeforces-1466E-Apollo-versus-Pan/">Codeforces 1466E Apollo versus Pan</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/31/Codeforces-1466D-13th-Labour-of-Heracles/">Codeforces 1466D 13th Labour of Heracles</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/31/Codeforces-1466C-Canine-poetry/">Codeforces 1466C Canine poetry</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/31/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2020年终总结</a>
           </li>
         
           <li>
             <a href="/2020/12/18/Codeforces-1463D-Pairs/">Codeforces 1463D Pairs</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/18/Codeforces-1463C-Busy-Robot/">Codeforces 1463C Busy Robot</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/18/Codeforces-1463B-Find-The-Array/">Codeforces 1463B Find The Array</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/18/Codeforces-1463A-Dungeon/">Codeforces 1463A Dungeon</a>
           </li>
         
       </ul>
