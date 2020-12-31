@@ -7,22 +7,18 @@
 
     
     <title>
-        Codeforces 1462E2 Close Tuples (hard version) |
+        分类: 人生感悟 |
         
         F-Mu&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
     
-    <meta name="description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。">
-<meta name="keywords" content="组合">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 1462E2 Close Tuples (hard version)">
-<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;16&#x2F;Codeforces-1462E2-Close-Tuples-hard-version&#x2F;index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="F-Mu&#39;s Blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-16T03:44:46.792Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -60,105 +56,51 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-Codeforces-1462E2-Close-Tuples-hard-version" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
   
-    <header class="article-header">
+  
+    
+    
+      
+      
+      <section class="global-container archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       
   
-    <h1 class="article-title" itemprop="name">
-      Codeforces 1462E2 Close Tuples (hard version)
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/12/31/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">2020年终总结</a>
     </h1>
   
-
+      
     </header>
-  
-  <div class="article-meta">
-    <a href="/2020/12/16/Codeforces-1462E2-Close-Tuples-hard-version/" class="article-date">
-  <time datetime="2020-12-16T03:21:41.000Z" itemprop="datePublished">2020-12-16</time>
+    <div class="article-meta archive-article-meta">
+      <a href="/2020/12/31/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-12-31T08:25:36.000Z" itemprop="datePublished">2020-12-31</time>
 </a>
-    
+      
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%BB%84%E5%90%88/">组合</a>
+    <a class="article-category-link" href="/categories/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/">人生感悟</a>
   </div>
 
-    
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E5%90%88/" rel="tag">组合</a></li></ul>
-
-  </div>
-  
-    <span id="busuanzi_container_page_pv">
-      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-    </span>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p><strong>题意</strong></p>
-<p>给一个长度为$n$的数组，取$m$个数字，其中最大值最小值相差不大于$k$，问这种方式有多少种，答案$\mod 10^9+7$。</p>
-<a id="more"></a>
-<p><strong>分析</strong></p>
-<p>通过简单版本大概了解了这题要枚举最小值来判断个数，那么我们枚举最小值$i$，其他的数都要在$[i,i+k]$中取，而不能全部都在$[i+1,i+k]$中取，否则与枚举的最小值$i$不符。</p>
-<p>采用容斥原理，将在$[i,i+k]$取数的情况减去在$[i+1,i+k]$取数的情况即可。</p>
-<p>组合数可以预处理，也可以采用预处理阶乘处理，也可以使用卢卡斯定理。（预处理时记得控制空间）</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> repd(z, x, y) for(int z=x;z&gt;=y;--z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)const</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">4e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> num[maxn];</span><br><span class="line"><span class="keyword">int</span> sum[maxn];</span><br><span class="line"><span class="keyword">int</span> c[(ll) <span class="number">2e5</span> + <span class="number">5</span>][<span class="number">105</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    rep(i, <span class="number">1</span>, <span class="number">2</span> * n)num[i] = sum[i] = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        ++num[x];</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, <span class="number">2</span> * n)sum[i] = sum[i - <span class="number">1</span>] + num[i];</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        ans = (((ans + c[sum[i + k] - sum[i - <span class="number">1</span>]][m]) % mod - c[sum[i + k] - sum[i]][m]) % mod + mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    c[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    c[<span class="number">1</span>][<span class="number">0</span>] = c[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">2</span>, <span class="number">2e5</span>) &#123;</span><br><span class="line">        c[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        rep(j, <span class="number">1</span>, <span class="number">100</span>) &#123;</span><br><span class="line">            c[i][j] = (c[i - <span class="number">1</span>][j - <span class="number">1</span>] + c[i - <span class="number">1</span>][j]) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/" rel="tag">人生感悟</a></li></ul>
 
-      
     </div>
-    
-      <footer class="article-footer">
-        完
-      </footer>
-    
   </div>
-  
-    
-<nav id="article-nav">
-  <div class="article-nav-block">
-    
-      <a href="/2020/12/16/Codeforces-1462F-The-Treasure-of-The-Segments/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            Codeforces 1462F The Treasure of The Segments
-          
-        </div>
-      </a>
-    
-  </div>
-  <div class="article-nav-block">
-    
-      <a href="/2020/12/16/Codeforces-1462E1-Close-Tuples-easy-version/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Codeforces 1462E1 Close Tuples (easy version)</div>
-        <strong class="article-nav-caption"></strong>
-      </a>
-    
-  </div>
-</nav>
-
-    <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2Ny8yNDE2NQ==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-
-  
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
 </section>
         <aside id="sidebar">
   

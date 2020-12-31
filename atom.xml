@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2020-12-17T17:27:50.699Z</updated>
+  <updated>2020-12-31T09:25:59.303Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020年终总结</title>
+    <link href="https://yoursite.com/2020/12/31/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>https://yoursite.com/2020/12/31/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
+    <published>2020-12-31T08:25:36.000Z</published>
+    <updated>2020-12-31T09:25:59.303Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>被PTSD折磨的一年，谁能想到年初回家的时候还能被所谓的“老师”以法律责任威胁呢。</p><p>“你还有没有底线！”，挺好的。</p><p>看《误杀》的时候被“匿名举报”当场破防，跑到电影院地下和孙导哭诉了一个小时，大喊大叫的，底下的工作人员都在说“有病吧”，很感谢孙导。</p><p>上半年在家里度过，拿游戏、麻将麻痹自己，晚上偶尔打打CF，然后夜不能寐，晚上两三点才能因为太困睡去，一天就过去了。</p><p>觉得自己ACM好像不太有希望的样子，两名队友对ACM都不大有兴趣，想另寻出路，学了学java和unity，看了看深度学习的入门视频，unity三分钟热度，深度学习找不到门入，java感觉还是挺好玩的。可玩来玩去还有什么是比CF好玩的呢？还是回归ACM麻木的写题。</p><p>和hxd们去了趟湖南，唔，旅游真累啊，带了台电脑去摸鱼，茶颜悦色真好喝。</p><p>打麻将通宵没有及时上报被孙导说了一顿，心虚.jpg。</p><p>发挥最好的一场CF div2拿了rk8，晚上担心fst和过于激动睡不着觉，醒来等着sysem test，然后上了个黄，开心了一段时间，然后掏出小号9场上了黄，觉得自己成事了。</p><p>数据库大作业掏出了《图书管理系统》，学了半年的java可以直接上手了，和赵欣冉大佬合作撸了一个简单的ssm项目，丢到了服务器上，答辩的时候被mysql的时区摆了一道。</p><p>推理社小朋友们想玩饥荒了，花了一个下午在自己的服务器上生成了个带模组的世界，可大家都是三分钟热度（爆哭）。</p><p>暑假多校，直接自闭，去年和着很多学长打多校，真有气氛，今年可以说是solo了，写惯了cf风格，写区域赛风格的题真的挺难受的。</p><p>和hxd们去了趟西部，缑敏辉小朋友跑西安去了，莫得意思，推荐了一手粗粮王，感觉还不错，感觉钱花太多了。</p><p>在家里真棒啊，不用洗衣服不用担心吃饭，可以出去打打麻将，和同学回忆初高中的事情，可以听爸妈唠唠叨叨，不喜欢听的还可以打断（老叛逆了），真的在外人面前唯唯诺诺，在家人面前重拳出击，hhh。</p><p>下半年回学校，每天都在被某老师的回忆折磨，感觉人不像人，鬼不像鬼。</p><p>上课老师讲了讲本硕一体化的政策，突然被破防了。开始考虑把大学生涯交给ACM是不是正确的选择，开始想既然拿不到保外名额就不如直接不争课内成绩了，真棒啊。</p><p>开始喝酒，每天最想的事情就是晚上约人出去喝酒然后BB，每天晚上晕晕的，真好，醒的时候才是折磨。顺手报了个心理咨询，咨询师对每件事情都问了问对我的影响是什么，反正成了鬼，挺好的。</p><p>喝酒的时候也干过许多错事吧，不过醒来也没什么后不后悔的，就是感觉有点冒犯别人，虽然觉得自己在什么时候都能保证理性，但客观上还是不行。</p><p>喝醉酒，第一次和爸妈聊一些很深层次的东西，哭着拿着瓶酒回宿舍继续喝。</p><p>很多人都和我说别喝酒，喝酒伤身体，可是醒着的时候才是折磨，那不如昏昏沉沉，眼神迷糊的活着。</p><p>准备CCPC的事宜，得知CCPC是线上赛的时候，主赛季不能公费旅游，感觉自己这ACM生涯真的挺不值得的。</p><p>秦皇岛站写题很顺畅，和学长配合的还不错，感觉轻而易举拿了个银首，觉得自己的水平好像还可以的样子，晚上吃了庆功宴，感觉自己又成事了，但感觉还是因为自己卡了签到题（全场最慢）导致没有拿金，还是很可惜。</p><p>绵阳站又卡签到题，卡了一个半小时，心态就不行了，好在学长上手接了键盘写掉了，不然真自闭了，后面稍微能写的题都写了，拿了个铜，又是自己卡了签到题，不然简单博弈论还能看，说不定还能银，也是可惜了。</p><p>CCPC快结束了，ICPC还没有风声，感觉主赛季要报销了。</p><p>ICPC也通知线上，然后名额点击就送，这时候好像已经波澜不惊了，还有什么事情能更坏呢，充斥着自己大学的ACM不过是一个自暴自弃的竞赛罢了，安心吃瓜就好。</p><p>课内成绩已经不在考虑范围内了，最后反正考研，自学补一补之前的进度，然后每天刷刷题，打打游戏，喝喝酒，做一个普通的大学生不好吗。</p><p>接到要求成立一个社团，着手准备答辩，同一时期各个考试的压力扑面而来，天天又处于不想努力的状态，那就混一混罢。</p><p>社团成立了，考试结束了，想要开启新生活，每天早起（相对与之前）训练，着手搭建社团，根据要求调整社团结构，准备成立大会。</p><p>本以为好像没有压力了，然后发现自己完全无法集中注意力刷题，每次盯着屏幕的时候总会想起“老师”的嘴脸，真好笑啊，所有道理都在指向不理他是最好的，可他的话语怎么也挥之不去，“记录档案”，“负法律责任”。</p><p>每晚上处于网抑云的状态，嘴里总要絮絮叨叨着什么才能停止大脑的胡思乱想，顺手又报了个心理咨询，换了个咨询师想换换风格，却是一句“为什么这件事情让你这么愤怒呢”，我也想知道啊hhh，还是换到原来的咨询师，却好像是说，我手上纵然有那么多奖，却没有可以帮助我在心理上抚平这个伤口的东西，真不错啊，那努力有什么用呢，努力是为了什么呢？</p><p>碎碎念的一年，不知道怎么办，也不知道是个什么一年，疫情对我完全没有影响，在家里对我的状态反而更好，真是讽刺啊，影响全国的灾难，到我这却成了可以在家呆半年的福利，学校是为什么成了一个自己不喜欢的地方呢？</p><p>年终总结，说到底还是总结自己被折磨的一年吧，我是如此懦弱不堪，接受挫折却不能及时自制，靠着一些不好的事情成长，努力却不能给自己一个心理健康的生活。</p><p>其实一开始对PTSD这个词没有太多的了解，后面发现自己好像就是局中人。</p><p>《悲观》</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;被PTSD折磨的一年，谁能想到年初回家的时候还能被所谓的“老师”以法律责任威胁呢。&lt;/p&gt;
+&lt;p&gt;“你还有没有底线！”，挺好的。&lt;/p&gt;
+&lt;p&gt;看《误杀》的时候被“匿名举报”当场破防，跑到电影院地下和孙导哭诉了一个小时，大喊大叫的，底下的
+      
+    
+    </summary>
+    
+    
+      <category term="人生感悟" scheme="https://yoursite.com/categories/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/"/>
+    
+    
+      <category term="人生感悟" scheme="https://yoursite.com/tags/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Codeforces 1463D Pairs</title>
@@ -497,37 +526,6 @@
 &lt;/ul&gt;
 &lt;p&gt;问最小操作多少次可以得到一个非递减数列&lt;/p&gt;
 &lt;p&gt;（比$F1$难在$n$变大，且数组中元素可以有相同的）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="DP" scheme="https://yoursite.com/categories/DP/"/>
-    
-    
-      <category term="DP" scheme="https://yoursite.com/tags/DP/"/>
-    
-      <category term="离散" scheme="https://yoursite.com/tags/%E7%A6%BB%E6%95%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CodeForces 1367F1 Flying Sort (Easy Version)</title>
-    <link href="https://yoursite.com/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/"/>
-    <id>https://yoursite.com/2020/06/17/CodeForces-1367F1-Flying-Sort-Easy-Version/</id>
-    <published>2020-06-17T07:04:58.000Z</published>
-    <updated>2020-06-17T14:38:44.859Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>题意</strong></p><p>给一个长度为$n$的数组，数组中的数互不相同，你可以有两种操作</p><ul><li>将某一个数放置在数组开头</li><li>将某一个数放置在数组结尾</li></ul><p>问最小操作多少次可以得到一个递增数列</p><a id="more"></a><p><strong>分析</strong></p><p>因为数组中的数很大，我们可以将其离散化然后操作，这样我们可以得到一个长度为$n$的排列，目的是得到一个从$1$到$n$的顺序排列</p><p>每个数最多操作一次，否则第一次可以不操作，那么我们就要找最多的不需要操作的数，如果不需要操作，则元素的位置不变，如果有这么一组不需要操作的数，我们可以发现，中间的数字是不能插进去的，所以这组数是相邻的数，那么问题就转换为找到数组内最长的相差为$1$的子序列，考虑用$DP$，$dp[i]$表示以数字$i$为结尾的最长子序列长度，则转移方程为</p><script type="math/tex; mode=display">dp[a[i]]=dp[a[i]-1]+1</script><p>如果$a[i]-1$出现了，则这个数是$a[i]-1$的后缀，否则这个数是开头，即为$1$</p><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(3, <span class="meta-string">"Ofast"</span>, <span class="meta-string">"inline"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> start ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="comment">//#define int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls st&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs st&lt;&lt;1|1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(z, x, y) for(int z=x;z&lt;=y;++z)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> com bool operator&lt;(const node &amp;b)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function">mt19937 <span class="title">rnd</span><span class="params">(chrono::high_resolution_clock::now().time_since_epoch().count())</span></span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = (ll) <span class="number">3e3</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn];</span><br><span class="line"><span class="keyword">int</span> dp[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)<span class="built_in">cin</span> &gt;&gt; a[i], b[i] = a[i], mp[a[i]] = i, dp[i] = <span class="number">0</span>;</span><br><span class="line">    sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n)a[mp[b[i]]] = i;</span><br><span class="line">    <span class="keyword">int</span> maxx = <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        dp[a[i]] = dp[a[i] - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">        maxx = max(maxx, dp[a[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; n - maxx &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">        solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;给一个长度为$n$的数组，数组中的数互不相同，你可以有两种操作&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将某一个数放置在数组开头&lt;/li&gt;
-&lt;li&gt;将某一个数放置在数组结尾&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;问最小操作多少次可以得到一个递增数列&lt;/p&gt;
     
     </summary>
     
