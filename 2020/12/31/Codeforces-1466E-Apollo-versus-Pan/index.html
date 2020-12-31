@@ -14,15 +14,15 @@
     
     
     
-    <meta name="description" content="题意 给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问  \sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&amp;x_j)\cdot(x_j|x_k) \mod 1e9+7分析 模拟是$n^3$，显然不现实。 对于位运算想到是否可以拆位，每一位独立的运算，独立的做出贡献，发现如果$x_j$的某一">
+    <meta name="description" content="题意 给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问  \sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&amp;x_j)\cdot(x_j|x_k) \mod 1e9+7">
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 1466E Apollo versus Pan">
 <meta property="og:url" content="https:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;12&#x2F;31&#x2F;Codeforces-1466E-Apollo-versus-Pan&#x2F;index.html">
 <meta property="og:site_name" content="F-Mu&#39;s Blog">
-<meta property="og:description" content="题意 给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问  \sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&amp;x_j)\cdot(x_j|x_k) \mod 1e9+7分析 模拟是$n^3$，显然不现实。 对于位运算想到是否可以拆位，每一位独立的运算，独立的做出贡献，发现如果$x_j$的某一">
+<meta property="og:description" content="题意 给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问  \sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&amp;x_j)\cdot(x_j|x_k) \mod 1e9+7">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-31T10:24:16.626Z">
+<meta property="og:updated_time" content="2020-12-31T10:24:56.648Z">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" href="/atom.xml" title="F-Mu&#39;s Blog" type="application/atom+xml">
@@ -90,7 +90,8 @@
         <p><strong>题意</strong></p>
 <p>给一个长度为$n(1\leq n\leq 5\cdot10^5)$的$x$数组，问</p>
 <script type="math/tex; mode=display">
-\sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&x_j)\cdot(x_j|x_k) \mod 1e9+7</script><p><strong>分析</strong></p>
+\sum\limits_{i=1}^n\sum\limits_{j=1}^n\sum\limits_{k=1}^n(x_i\&x_j)\cdot(x_j|x_k) \mod 1e9+7</script><a id="more"></a>
+<p><strong>分析</strong></p>
 <p>模拟是$n^3$，显然不现实。</p>
 <p>对于位运算想到是否可以拆位，每一位独立的运算，独立的做出贡献，发现如果$x_j$的某一个为$1$，那么一定能做出贡献，考虑这一位能做出多少贡献。</p>
 <p>手玩下数据可以发现，其他位会产生影响，所以独立拆位很难处理，但是给了我们启发，可以考虑通过枚举$x_j$，来获取答案，那么将公式化为$\sum\limits_{j=1}^n(\sum\limits_{i=1}^n(x_i\&amp;x_j)\cdot\sum\limits_{k=1}^n(x_j|x_k))$。</p>
