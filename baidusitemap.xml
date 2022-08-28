@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yoursite.com/2020/12/18/Codeforces-1463B-Find-The-Array/</loc>
+    <lastmod>2022-08-28</lastmod>
+  </url>  <url>
     <loc>https://yoursite.com/2020/12/31/Codeforces-1466D-13th-Labour-of-Heracles/</loc>
     <lastmod>2020-12-31</lastmod>
   </url>  <url>
@@ -17,9 +20,6 @@
     <lastmod>2020-12-17</lastmod>
   </url>  <url>
     <loc>https://yoursite.com/2020/12/18/Codeforces-1463C-Busy-Robot/</loc>
-    <lastmod>2020-12-17</lastmod>
-  </url>  <url>
-    <loc>https://yoursite.com/2020/12/18/Codeforces-1463B-Find-The-Array/</loc>
     <lastmod>2020-12-17</lastmod>
   </url>  <url>
     <loc>https://yoursite.com/2019/11/23/Codeforces-1174D-Ehab-and-the-Expected-XOR-Problem/</loc>
